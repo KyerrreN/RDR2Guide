@@ -1,0 +1,6 @@
+@RDR2Guide_HostAddress = http://localhost:5046
+
+GET {{RDR2Guide_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
