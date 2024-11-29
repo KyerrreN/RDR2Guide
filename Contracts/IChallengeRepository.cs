@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IChallengeRepository
     {
-        IEnumerable<Challenge> GetAllChallenges(int id, bool trackChanges);
+        IEnumerable<Challenge> GetAllChallenges(bool trackChanges);
         Challenge GetChallenge(int id, bool trackChanges);
     }
 }

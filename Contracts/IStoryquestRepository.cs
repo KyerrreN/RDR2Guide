@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IStoryquestRepository
     {
-        IEnumerable<Storyquest> GetAllStoryQuests(int id, bool trackChanges);
+        IEnumerable<Storyquest> GetAllStoryQuests(bool trackChanges);
         Storyquest GetStoryQuest(int id, bool trackChanges);
     }
 }

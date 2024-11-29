@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IAnimalRepository
     {
-        IEnumerable<Animal> GetAllAnimals(int id, bool trackChanges);
+        IEnumerable<Animal> GetAllAnimals(bool trackChanges);
         Animal GetAnimal(int id, bool trackChanges);    
     }
 }

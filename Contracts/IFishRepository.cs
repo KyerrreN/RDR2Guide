@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IFishRepository
     {
-        IEnumerable<Fish> GetAllFish(int id, bool trackChanges);
+        IEnumerable<Fish> GetAllFish(bool trackChanges);
         Fish GetFish(int id, bool trackChanges);
     }
 }

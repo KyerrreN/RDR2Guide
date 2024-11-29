@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface ITablegameRepository
     {
-        IEnumerable<Tablegame> GetAllTableGames(int id, bool trackChanges);
+        IEnumerable<Tablegame> GetAllTableGames(bool trackChanges);
         Tablegame GetTableGame(int id, bool trackChanges);
     }   
 }

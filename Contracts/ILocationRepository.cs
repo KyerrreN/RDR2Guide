@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface ILocationRepository
     {
-        IEnumerable<Location> GetAllLocations(int id, bool trackChanges);
+        IEnumerable<Location> GetAllLocations(bool trackChanges);
         Location GetLocation(int id, bool trackChanges);
     }
 }

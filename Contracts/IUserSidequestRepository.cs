@@ -10,6 +10,6 @@ namespace Contracts
     public interface IUserSidequestRepository
     {
         IEnumerable<UserSidequest> GetUserFoundSideQuests(int userId, bool trackChanges);
-        UserSidequest GetFoundSideQuest(int userId, int sideQuestId, bool principalTrackChanges, bool dependentTrackChanges);
+        UserSidequest GetFoundSideQuest(int userId, int sideQuestId, bool trackChanges);
     }
 }

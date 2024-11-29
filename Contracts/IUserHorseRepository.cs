@@ -10,6 +10,6 @@ namespace Contracts
     public interface IUserHorseRepository
     {
         IEnumerable<UserHorse> GetUserFoundHorses(int userId, bool trackChanges);
-        UserHorse GetFoundHorse(int userId, int horseId, bool principalTrackChanges, bool dependentTrackChanges);
+        UserHorse GetFoundHorse(int userId, int horseId, bool trackChanges);
     }
 }

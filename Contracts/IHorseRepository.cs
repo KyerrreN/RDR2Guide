@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IHorseRepository
     {
-        IEnumerable<Horse> GetAllHorses(int id, bool trackChanges);
+        IEnumerable<Horse> GetAllHorses(bool trackChanges);
         Horse GetHorse(int id, bool trackChanges);
     }
 }

@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface ISidequestRepository
     {
-        IEnumerable<Sidequest> GetAllSidequests(int id, bool trackChanges);
+        IEnumerable<Sidequest> GetAllSidequests(bool trackChanges);
         Sidequest GetSidequest(int id, bool trackChanges);
     }
 }

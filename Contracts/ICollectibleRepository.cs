@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface ICollectibleRepository
     {
-        IEnumerable<Collectible> GetAllCollectibles(int id, bool trackChanges);
+        IEnumerable<Collectible> GetAllCollectibles(bool trackChanges);
         Collectible GetCollectible(int id, bool trackChanges);
     }
 }

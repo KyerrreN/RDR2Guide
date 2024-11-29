@@ -10,6 +10,6 @@ namespace Contracts
     public interface IUserChallengeRepository
     {
         IEnumerable<UserChallenge> GetUserFoundChallenges(int userId, bool trackChanges);
-        UserChallenge GetFoundChallenge(int userId, int challengeId, bool principalTrackChanges, bool dependentTrackChanges);
+        UserChallenge GetFoundChallenge(int userId, int challengeId, bool trackChanges);
     }
 }

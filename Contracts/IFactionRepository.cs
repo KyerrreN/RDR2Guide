@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IFactionRepository
     {
-        IEnumerable<Faction> GetAllFactions(int id, bool trackChanges);
+        IEnumerable<Faction> GetAllFactions(bool trackChanges);
         Faction GetFaction(int id, bool trackChanges);
     }
 }

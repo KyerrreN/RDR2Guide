@@ -10,6 +10,6 @@ namespace Contracts
     public interface IUserFactionRepository
     {
         IEnumerable<UserFaction> GetUserFoundFactions(int userId, bool trackChanges);
-        UserFaction GetFoundFaction(int userId, int factionId, bool principalTrackChanges, bool dependentTrackChanges);
+        UserFaction GetFoundFaction(int userId, int factionId, bool trackChanges);
     }
 }

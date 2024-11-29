@@ -10,6 +10,6 @@ namespace Contracts
     public interface IUserRandomencounterRepository
     {
         IEnumerable<UserRandomencounter> GetUserFoundRandomEncounter(int userId, bool trackChanges);
-        UserRandomencounter GetFoundRandomEncounter(int userId, int randomEncounterId, bool principalTrackChanges, bool dependentTrackChanges);
+        UserRandomencounter GetFoundRandomEncounter(int userId, int randomEncounterId, bool trackChanges);
     }
 }

@@ -10,6 +10,6 @@ namespace Contracts
     public interface IUserFishRepository
     {
         IEnumerable<UserFish> GetUserFoundFish(int userId, bool trackChanges);
-        UserFish GetFoundFish(int userId, int fishId, bool principalTrackChanges, bool dependentTrackChanges);
+        UserFish GetFoundFish(int userId, int fishId, bool trackChanges);
     }
 }

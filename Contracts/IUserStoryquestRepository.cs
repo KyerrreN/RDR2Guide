@@ -10,6 +10,6 @@ namespace Contracts
     public interface IUserStoryquestRepository
     {
         IEnumerable<UserStoryquest> GetUserFoundStoryQuests(int userId, bool trackChanges);
-        UserStoryquest GetFoundStoryQuest(int userId, int storyQuestId, bool principalTrackChanges, bool dependentTrackChanges);
+        UserStoryquest GetFoundStoryQuest(int userId, int storyQuestId, bool trackChanges);
     }
 }

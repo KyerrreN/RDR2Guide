@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IMiscellaneousRepository
     {
-        IEnumerable<Miscellaneous> GetAllMiscellaneous(int id, bool trackChanges);
+        IEnumerable<Miscellaneous> GetAllMiscellaneous(bool trackChanges);
         Miscellaneous GetMiscellaneous(int id, bool trackChanges);
     }
 }

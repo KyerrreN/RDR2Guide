@@ -10,6 +10,6 @@ namespace Contracts
     public interface IUserAnimalRepository
     {
         IEnumerable<UserAnimal> GetUserFoundAnimals(int userId, bool trackChanges); 
-        UserAnimal GetFoundAnimal(int userId, int animalId, bool principalTrackChanges, bool dependentTrackChanges);
+        UserAnimal GetFoundAnimal(int userId, int animalId, bool trackChanges);
     }
 }
