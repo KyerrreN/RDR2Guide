@@ -1,4 +1,6 @@
 
+using RDR2Guide.Extensions;
+
 namespace RDR2Guide
 {
     public class Program
@@ -10,9 +12,13 @@ namespace RDR2Guide
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.ConfigureCors();
+            builder.Services.ConfigureIISIntegration();
+            builder.Services.ConfigureSqlContext(builder.Configuration);
 
             var app = builder.Build();
 

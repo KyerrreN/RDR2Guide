@@ -19,7 +19,6 @@ namespace Entities.Models
         public ICollection<Sidequest> Sidequests { get; } = [];
         public ICollection<Animal> Animals { get; } = [];
         public ICollection<Plant> Plants { get; } = [];
-        public ICollection<Miscellaneous> Miscellaneous { get; } = [];
         public ICollection<Fish> Fish { get; } = [];
     }
 }

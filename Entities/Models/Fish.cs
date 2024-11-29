@@ -13,6 +13,9 @@ namespace Entities.Models
         [Required]
         public string Bait { get; set; }
 
+        [Required]
+        public bool IsLegendary { get; set; }
+
         // RL
         [Required]
         public int LocationId { get; set; }

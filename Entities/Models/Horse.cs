@@ -8,6 +8,9 @@ namespace Entities.Models
         public int Id { get; set; }
 
         [Required]
+        public string Breed { get; set; }   
+
+        [Required]
         public byte Health { get; set; }
 
         [Required]

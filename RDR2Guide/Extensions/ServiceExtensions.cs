@@ -1,4 +1,7 @@
-﻿namespace RDR2Guide.Extensions
+﻿using Microsoft.EntityFrameworkCore;
+using Repository;
+
+namespace RDR2Guide.Extensions
 {
     public static class ServiceExtensions
     {
@@ -17,6 +20,13 @@
             services.Configure<IISOptions>(options =>
             {
 
+            });
+        }
+        public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<RepositoryContext>(options =>
+            {
+                options.UseSqlServer(configuration.GetConnectionString("sqlConnection"));
             });
         }
     }
