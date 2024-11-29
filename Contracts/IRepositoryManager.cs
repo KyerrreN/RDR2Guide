@@ -36,5 +36,6 @@ namespace Contracts
         IUserTablegameRepository UserTablegame { get; }
         IUserWeaponRepository UserWeapon { get; }
         IWeaponRepository Weapon { get; }
+        void Save();
     }
 }
