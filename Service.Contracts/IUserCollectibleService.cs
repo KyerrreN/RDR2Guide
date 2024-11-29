@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.Contracts
 {
-    public interface IUserCollectibleDto
+    public interface IUserCollectibleService
     {
         BaseDto<UserCollectibleDto> GetAll(int userId, bool trackChanges);
         UserCollectibleDto GetOne(int userId, int id, bool trackChanges);
