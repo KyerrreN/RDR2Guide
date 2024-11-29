@@ -1,4 +1,4 @@
-﻿namespace RDR2Guide.Extensions
+﻿namespace Entities.Exceptions
 {
     public class NotFoundException : Exception
     {

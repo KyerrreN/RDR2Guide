@@ -14,7 +14,7 @@ namespace Repository.Custom
         {
         }
 
-        public IEnumerable<User> GetAllUsers(int userId, bool trackChanges)
+        public IEnumerable<User> GetAllUsers(bool trackChanges)
         {
             return FindAll(trackChanges)
                 .OrderBy(x => x.Id)

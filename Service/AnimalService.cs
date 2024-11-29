@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Contracts;
+using Entities.Exceptions;
 using Entities.Models;
-using RDR2Guide.Extensions;
 using Service.Contracts;
 using Shared.DTO;
 using System;
