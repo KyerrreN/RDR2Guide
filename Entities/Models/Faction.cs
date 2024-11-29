@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Entities.Models
 {
@@ -20,6 +21,7 @@ namespace Entities.Models
         public ICollection<User> Users { get; } = [];
         public ICollection<UserFaction> UserFactions { get; } = [];
 
+        [JsonIgnore]
         public ICollection<Randomencounter> Randomencounters { get; } = [];
     }
 }
