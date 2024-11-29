@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Contracts;
+using Microsoft.EntityFrameworkCore;
 using Repository;
+using Service.Contracts;
+using Service;
 
 namespace RDR2Guide.Extensions
 {
@@ -29,5 +32,17 @@ namespace RDR2Guide.Extensions
                 options.UseSqlServer(configuration.GetConnectionString("sqlConnection"));
             });
         }
+        // Add repository manager
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
+        }
+
+        // Add service manager
+        public static void ConfigureServiceManager(this IServiceCollection services)
+        {
+            services.AddScoped<IServiceManager, ServiceManager>();
+        }
+
     }
 }
