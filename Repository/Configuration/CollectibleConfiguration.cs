@@ -17,7 +17,7 @@ namespace Repository.Configuration
                     Name = "Cigarette Cards",
                     Amount = 144,
                     Image = null,
-                    SidequestId = null
+                    SidequestId = 1
                 },
                 new Collectible
                 {
@@ -25,7 +25,7 @@ namespace Repository.Configuration
                     Name = "Rock Carvings",
                     Amount = 10,
                     Image = null,
-                    SidequestId = null    
+                    SidequestId = 2    
                 },
                 new Collectible
                 {
@@ -33,7 +33,7 @@ namespace Repository.Configuration
                     Name = "Dinosaur Bones",
                     Amount = 30,
                     Image = null,
-                    SidequestId = null
+                    SidequestId = 3
                 },
                 new Collectible
                 {

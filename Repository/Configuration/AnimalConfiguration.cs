@@ -87,7 +87,7 @@ namespace Repository.Configuration
                 {
                     Id = 9,
                     Name = "American Black Bear",
-                    Hostility = "Aggressive",
+                    Hostility = "Enemy",
                     Image = null,
                     IsLegendary = false,
                     LocationId = 12
