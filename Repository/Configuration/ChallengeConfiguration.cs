@@ -39,6 +39,62 @@ namespace Repository.Configuration
                     Rank = 1,
                     Description = "Win 5 hands of poker.",
                     Reward = "Gambler Holster"
+                },
+                new Challenge
+                {
+                    Id = 4,
+                    Name = "Gambler",
+                    Rank = 3,
+                    Description = "Win 3 gameы of Five Finger Fillet.",
+                    Reward = "Gambler Bandolier"
+                },
+                new Challenge
+                {
+                    Id = 5,
+                    Name = "Survivalist",
+                    Rank = 1,
+                    Description = "Catch 3 Bluegill fish.",
+                    Reward = "Survivalist Gun Belt"
+                },
+                new Challenge
+                {
+                    Id = 6,
+                    Name = "Explorer",
+                    Rank = 1,
+                    Description = "Find a treasure map.",
+                    Reward = "Explorer Holster"
+                },
+                new Challenge
+                {
+                    Id = 7,
+                    Name = "Horseman",
+                    Rank = 2,
+                    Description = "Jump over 3 obstacles in 15 seconds.",
+                    Reward = "25 Stamina XP, $5.00"
+                },
+                new Challenge
+                {
+                    Id = 8,
+                    Name = "Master Hunter",
+                    Rank = 3,
+                    Description = "Track 10 different animal species using your binoculars.",
+                    Reward = "Master Hunter Bandolier"
+                },
+                new Challenge
+                {
+                    Id = 9,
+                    Name = "Weapons Expert",
+                    Rank = 1,
+                    Description = "Kill 3 enemies with a knife.",
+                    Reward = "Weapons Expert Holster"
+                },
+                new Challenge
+                {
+                    Id = 10,
+                    Name = "Herbalist",
+                    Rank = 9,
+                    Description = "Pick one of each species of herb.",
+                    Reward = "150 Health XP, $20.00"
                 }
             );
         }

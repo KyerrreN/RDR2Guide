@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     SidequestId = 2,
+                },
+                new UserSidequest
+                {
+                    UserId = 2,
+                    SidequestId = 3,
+                },
+                new UserSidequest
+                {
+                    UserId = 2,
+                    SidequestId = 4,
+                },
+                new UserSidequest
+                {
+                    UserId = 2,
+                    SidequestId = 5,
+                },
+                new UserSidequest
+                {
+                    UserId = 3,
+                    SidequestId = 1,
+                },
+                new UserSidequest
+                {
+                    UserId = 3,
+                    SidequestId = 2,
+                },
+                new UserSidequest
+                {
+                    UserId = 3,
+                    SidequestId = 3,
                 }
             );
         }

@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     ChallengeId = 2,
+                },
+                new UserChallenge
+                {
+                    UserId = 2,
+                    ChallengeId = 3,
+                },
+                new UserChallenge
+                {
+                    UserId = 2,
+                    ChallengeId = 4,
+                },
+                new UserChallenge
+                {
+                    UserId = 2,
+                    ChallengeId = 5,
+                },
+                new UserChallenge
+                {
+                    UserId = 2,
+                    ChallengeId = 6,
+                },
+                new UserChallenge
+                {
+                    UserId = 2,
+                    ChallengeId = 7,
+                },
+                new UserChallenge
+                {
+                    UserId = 3,
+                    ChallengeId = 2,
                 }
             );
         }

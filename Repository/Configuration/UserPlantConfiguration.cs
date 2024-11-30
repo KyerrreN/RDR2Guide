@@ -29,8 +29,38 @@ namespace Repository.Configuration
                 },
                 new UserPlant
                 {
+                    UserId = 3,
+                    PlantId = 3
+                },
+                new UserPlant
+                {
                     UserId = 2,
-                    PlantId = 2
+                    PlantId = 4
+                },
+                new UserPlant
+                {
+                    UserId = 2,
+                    PlantId = 5
+                },
+                new UserPlant
+                {
+                    UserId = 2,
+                    PlantId = 6
+                },
+                new UserPlant
+                {
+                    UserId = 2,
+                    PlantId = 7
+                },
+                new UserPlant
+                {
+                    UserId = 2,
+                    PlantId = 8
+                },
+                new UserPlant
+                {
+                    UserId = 2,
+                    PlantId = 9
                 }
             );
         }

@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     StoryquestId = 2,
+                },
+                new UserStoryquest
+                {
+                    UserId = 2,
+                    StoryquestId = 3,
+                },
+                new UserStoryquest
+                {
+                    UserId = 2,
+                    StoryquestId = 4,
+                },
+                new UserStoryquest
+                {
+                    UserId = 2,
+                    StoryquestId = 5,
+                },
+                new UserStoryquest
+                {
+                    UserId = 3,
+                    StoryquestId = 1,
+                },
+                new UserStoryquest
+                {
+                    UserId = 3,
+                    StoryquestId = 2,
+                },
+                new UserStoryquest
+                {
+                    UserId = 3,
+                    StoryquestId = 3,
                 }
             );
         }

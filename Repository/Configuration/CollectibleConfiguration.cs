@@ -17,7 +17,7 @@ namespace Repository.Configuration
                     Name = "Cigarette Cards",
                     Amount = 144,
                     Image = null,
-                    SidequestId = 1
+                    SidequestId = null
                 },
                 new Collectible
                 {
@@ -25,7 +25,7 @@ namespace Repository.Configuration
                     Name = "Rock Carvings",
                     Amount = 10,
                     Image = null,
-                    SidequestId = 2,
+                    SidequestId = null    
                 },
                 new Collectible
                 {
@@ -33,7 +33,63 @@ namespace Repository.Configuration
                     Name = "Dinosaur Bones",
                     Amount = 30,
                     Image = null,
-                    SidequestId = 3
+                    SidequestId = null
+                },
+                new Collectible
+                {
+                    Id = 4,
+                    Name = "Graves of your fallen companions",
+                    Amount = 9,
+                    Image = null,
+                    SidequestId = null
+                },
+                new Collectible
+                {
+                    Id = 5,
+                    Name = "Fish species",
+                    Amount = 10,
+                    Image = null,
+                    SidequestId = null
+                },
+                new Collectible
+                {
+                    Id = 6,
+                    Name = "Hunting requests",
+                    Amount = 5,
+                    Image = null,
+                    SidequestId = null
+                },
+                new Collectible
+                {
+                    Id = 7,
+                    Name = "Dreamcatchers",
+                    Amount = 20,
+                    Image = null,
+                    SidequestId = null
+                },
+                new Collectible
+                {
+                    Id = 8,
+                    Name = "Weapons",
+                    Amount = 48,
+                    Image = null,
+                    SidequestId = null
+                },
+                new Collectible
+                {
+                    Id = 9,
+                    Name = "Plant species",
+                    Amount = 20,
+                    Image = null,
+                    SidequestId = null
+                },
+                new Collectible
+                {
+                    Id = 10,
+                    Name = "Gangs",
+                    Amount = 6,
+                    Image = null,
+                    SidequestId = null
                 }
             );
         }

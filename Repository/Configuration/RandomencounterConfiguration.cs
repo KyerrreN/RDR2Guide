@@ -25,8 +25,50 @@ namespace Repository.Configuration
                 new Randomencounter
                 {
                     Id = 3,
-                    Name = "Abducted Policeman",
+                    Name = "Arson and Vandalism at the Saint Denis City Hall",
                     FactionId = 2
+                },
+                new Randomencounter
+                {
+                    Id = 4,
+                    Name = "Camp Intimidation",
+                    FactionId = 4
+                },
+                new Randomencounter
+                {
+                    Id = 5,
+                    Name = "Burning Wagon Attack",
+                    FactionId = 4
+                },
+                new Randomencounter
+                {
+                    Id = 6,
+                    Name = "Hostage Situation",
+                    FactionId = 5
+                },
+                new Randomencounter
+                {
+                    Id = 7,
+                    Name = "Venter's Place Party",
+                    FactionId = 6
+                },
+                new Randomencounter
+                {
+                    Id = 8,
+                    Name = "Del Lobo Breakout",
+                    FactionId = 6
+                },
+                new Randomencounter
+                {
+                    Id = 9,
+                    Name = "Train Robbery",
+                    FactionId = 1
+                },
+                new Randomencounter
+                {
+                    Id = 10,
+                    Name = "Prison Wagon Break",
+                    FactionId = 1
                 }
             );
         }

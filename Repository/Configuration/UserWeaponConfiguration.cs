@@ -26,10 +26,41 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     WeaponId = 1,
-                }, new UserWeapon
+                },
+                new UserWeapon
                 {
                     UserId = 2,
                     WeaponId = 2,
+                },
+                new UserWeapon
+                {
+                    UserId = 2,
+                    WeaponId = 3,
+                },
+                new UserWeapon
+                {
+                    UserId = 2,
+                    WeaponId = 4,
+                },
+                new UserWeapon
+                {
+                    UserId = 2,
+                    WeaponId = 5,
+                },
+                new UserWeapon
+                {
+                    UserId = 3,
+                    WeaponId = 1,
+                },
+                new UserWeapon
+                {
+                    UserId = 3,
+                    WeaponId = 2,
+                },
+                new UserWeapon
+                {
+                    UserId = 3,
+                    WeaponId = 3,
                 }
             );
         }

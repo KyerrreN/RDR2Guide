@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     RandomencounterId = 2,
+                },
+                new UserRandomencounter
+                {
+                    UserId = 2,
+                    RandomencounterId = 3,
+                },
+                new UserRandomencounter
+                {
+                    UserId = 2,
+                    RandomencounterId = 4,
+                },
+                new UserRandomencounter
+                {
+                    UserId = 2,
+                    RandomencounterId = 5,
+                },
+                new UserRandomencounter
+                {
+                    UserId = 2,
+                    RandomencounterId = 6,
+                },
+                new UserRandomencounter
+                {
+                    UserId = 2,
+                    RandomencounterId = 7,
+                },
+                new UserRandomencounter
+                {
+                    UserId = 3,
+                    RandomencounterId = 3,
                 }
             );
         }

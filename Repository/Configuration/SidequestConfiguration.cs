@@ -42,6 +42,83 @@ namespace Repository.Configuration
                     MissableChapter = null,
                     Image = null,
                     LocationId = 1
+                },
+                new Sidequest
+                {
+                    Id = 4,
+                    Name = "The Noblest of Men, and a Woman",
+                    Reward = "Letter from Theodore Levin, $350",
+                    QuestGiver = "Theodore Levin",
+                    IsMissable = false,
+                    MissableChapter = null,
+                    Image = null,
+                    LocationId = 1
+                },
+                new Sidequest
+                {
+                    Id = 5,
+                    Name = "The Smell of the Grease Paint",
+                    Reward = "Letter from Miss Marjorie, $40",
+                    QuestGiver = "Miss Marjorie",
+                    IsMissable = false,
+                    MissableChapter = null,
+                    Image = null,
+                    LocationId = 3
+                },
+                new Sidequest
+                {
+                    Id = 6,
+                    Name = "The Iniquities of History",
+                    Reward = "Honor",
+                    QuestGiver = "Jeremiah Compson",
+                    IsMissable = false,
+                    MissableChapter = null,
+                    Image = null,
+                    LocationId = 5
+                },
+                new Sidequest
+                {
+                    Id = 7,
+                    Name = "The Ties That Bind Us",
+                    Reward = "$40 or Positive Honor",
+                    QuestGiver = "Sampson Black & Wendell White",
+                    IsMissable = false,
+                    MissableChapter = null,
+                    Image = null,
+                    LocationId = 5
+                },
+                new Sidequest
+                {
+                    Id = 8,
+                    Name = "He's British, of Course",
+                    Reward = "Emerald",
+                    QuestGiver = "Margaret",
+                    IsMissable = false,
+                    MissableChapter = null,
+                    Image = null,
+                    LocationId = 14
+                },
+                new Sidequest
+                {
+                    Id = 9,
+                    Name = "The Artist's Way",
+                    Reward = "Missable Otis Miller's Revolver",
+                    QuestGiver = "Charles Chatenay",
+                    IsMissable = false,
+                    MissableChapter = null,
+                    Image = null,
+                    LocationId = 13
+                },
+                new Sidequest
+                {
+                    Id = 10,
+                    Name = "Duchesses and Other Animals",
+                    Reward = "$750, Exotic Hat, Algernon's Revolver",
+                    QuestGiver = "Algernon Wasp",
+                    IsMissable = false,
+                    MissableChapter = null,
+                    Image = null,
+                    LocationId = 13
                 }
             );
         }

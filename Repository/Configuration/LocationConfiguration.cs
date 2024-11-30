@@ -80,6 +80,30 @@ namespace Repository.Configuration
                     Id = 11,
                     Name = "Cornwall Kerosene&Tar",
                     Image = null
+                },
+                new Location
+                {
+                    Id = 12,
+                    Name = "Ambarino",
+                    Image = null
+                },
+                new Location
+                {
+                    Id = 13,
+                    Name = "Saint Denis",
+                    Image = null
+                },
+                new Location
+                {
+                    Id = 15,
+                    Name = "New Austin",
+                    Image = null
+                },
+                new Location
+                {
+                    Id = 16,
+                    Name = "Guarma island",
+                    Image = null
                 }
             );
         }

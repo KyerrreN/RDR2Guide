@@ -8,7 +8,8 @@ namespace Repository.Configuration
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            // ЗДЕСЬ НИЧЕГО НЕ ЗАПОЛНЯЙ
+            // ЗДЕСЬ НИЧЕГО НЕ ЗАПОЛНЯЙ 
+            // ok
             builder.HasData
             (
                 new User
