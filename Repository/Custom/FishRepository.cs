@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Repository.Custom
         public IEnumerable<Fish> GetAllFish(bool trackChanges)
         {
             return FindAll(trackChanges)
+                .Include(x => x.Location)
                 .OrderBy(f => f.Id)
                 .ToList();
         }
@@ -24,6 +26,7 @@ namespace Repository.Custom
         public Fish GetFish(int id, bool trackChanges)
         {
             return FindByCondition(f => f.Id.Equals(id), trackChanges)
+                .Include(x => x.Location)
                 .SingleOrDefault();
         }
     }
