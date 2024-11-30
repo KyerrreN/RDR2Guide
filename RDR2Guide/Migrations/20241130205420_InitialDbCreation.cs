@@ -7,7 +7,7 @@
 namespace RDR2Guide.Migrations
 {
     /// <inheritdoc />
-    public partial class dbseeding : Migration
+    public partial class InitialDbCreation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

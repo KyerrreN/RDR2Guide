@@ -11,8 +11,8 @@ using Repository;
 namespace RDR2Guide.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20241130202835_db-seeding")]
-    partial class dbseeding
+    [Migration("20241130205420_InitialDbCreation")]
+    partial class InitialDbCreation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
