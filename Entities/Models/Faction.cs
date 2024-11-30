@@ -18,7 +18,9 @@ namespace Entities.Models
         public string Status { get; set; }
 
         // RL
+        [JsonIgnore]
         public ICollection<User> Users { get; } = [];
+        [JsonIgnore]
         public ICollection<UserFaction> UserFactions { get; } = [];
 
         [JsonIgnore]
