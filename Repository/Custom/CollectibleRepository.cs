@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Repository.Custom
         public IEnumerable<Collectible> GetAllCollectibles(bool trackChanges)
         {
             return FindAll(trackChanges)
+                .Include(x => x.Sidequest)
                 .OrderBy(c => c.Id)
                 .ToList();
         }
@@ -24,6 +26,7 @@ namespace Repository.Custom
         public Collectible GetCollectible(int id, bool trackChanges)
         {
             return FindByCondition(c => c.Id.Equals(id), trackChanges)
+                .Include(x => x.Sidequest)
                 .SingleOrDefault();
         }
     }
