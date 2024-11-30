@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Entities.Models
 {
@@ -19,7 +20,9 @@ namespace Entities.Models
         public bool IsLegendary { get; set; }
 
         // RL
+        [JsonIgnore]
         public ICollection<User> Users { get; } = [];
+        [JsonIgnore]
         public ICollection<UserAnimal> UserAnimals { get; } = [];
 
         public Location? Location { get; set; }
