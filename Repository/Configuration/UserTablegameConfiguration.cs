@@ -44,8 +44,8 @@ namespace Repository.Configuration
                 },
                 new UserTablegame
                 {
-                    UserId = 2,
-                    TablegameId = 5,
+                    UserId = 1,
+                    TablegameId = 3,
                 },
                 new UserTablegame
                 {

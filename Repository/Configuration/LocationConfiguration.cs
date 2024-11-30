@@ -95,6 +95,12 @@ namespace Repository.Configuration
                 },
                 new Location
                 {
+                    Id = 14,
+                    Name = "Lemoyne",
+                    Image = null
+                },
+                new Location
+                {
                     Id = 15,
                     Name = "New Austin",
                     Image = null

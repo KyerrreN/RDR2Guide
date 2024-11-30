@@ -506,6 +506,62 @@ namespace RDR2Guide.Migrations
                             IsLegendary = true,
                             LocationId = 5,
                             Name = "Legendary Bluegill"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Bait = "Corn",
+                            IsLegendary = false,
+                            LocationId = 14,
+                            Name = "Bullhead Catfish"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Bait = "Special Swamp Lure",
+                            IsLegendary = true,
+                            LocationId = 14,
+                            Name = "Legendary Bullhead Catfish"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Bait = "Corn",
+                            IsLegendary = false,
+                            LocationId = 4,
+                            Name = "Chain Pickerel"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Bait = "Special River Lure",
+                            IsLegendary = true,
+                            LocationId = 4,
+                            Name = "Legendary Chain Pickerel"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Bait = "Lake Lure",
+                            IsLegendary = false,
+                            LocationId = 14,
+                            Name = "Lake Sturgeon"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Bait = "Special River Lure",
+                            IsLegendary = true,
+                            LocationId = 14,
+                            Name = "Legendary Lake Sturgeon"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Bait = "Bread",
+                            IsLegendary = false,
+                            LocationId = 12,
+                            Name = "Perch"
                         });
                 });
 
@@ -746,6 +802,11 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 13,
                             Name = "Saint Denis"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Lemoyne"
                         },
                         new
                         {
@@ -2109,8 +2170,8 @@ namespace RDR2Guide.Migrations
                         },
                         new
                         {
-                            UserId = 2,
-                            TablegameId = 5
+                            UserId = 1,
+                            TablegameId = 3
                         },
                         new
                         {

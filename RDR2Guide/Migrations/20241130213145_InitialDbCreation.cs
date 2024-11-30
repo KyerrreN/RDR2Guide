@@ -973,11 +973,6 @@ namespace RDR2Guide.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Horses",
-                columns: new[] { "Id", "Acceleration", "Breed", "Handling", "Health", "Image", "LocationId", "Speed", "Stamina" },
-                values: new object[] { 6, (byte)3, "Ardennes", "Standard", (byte)5, null, 14, (byte)3, (byte)4 });
-
-            migrationBuilder.InsertData(
                 table: "Locations",
                 columns: new[] { "Id", "Image", "Name" },
                 values: new object[,]
@@ -995,6 +990,7 @@ namespace RDR2Guide.Migrations
                     { 11, null, "Cornwall Kerosene&Tar" },
                     { 12, null, "Ambarino" },
                     { 13, null, "Saint Denis" },
+                    { 14, null, "Lemoyne" },
                     { 15, null, "New Austin" },
                     { 16, null, "Guarma island" }
                 });
@@ -1014,16 +1010,6 @@ namespace RDR2Guide.Migrations
                     { 8, "Craft 1 recipe from six different category types." },
                     { 9, "Complete a Home Robbery, a Shop Robbery, a Coach Robbery and a Train Robbery." }
                 });
-
-            migrationBuilder.InsertData(
-                table: "Plants",
-                columns: new[] { "Id", "Image", "IsEdible", "LocationId", "Name" },
-                values: new object[] { 4, null, false, 14, "Hummingbird Sage" });
-
-            migrationBuilder.InsertData(
-                table: "Sidequests",
-                columns: new[] { "Id", "Image", "IsMissable", "LocationId", "MissableChapter", "Name", "QuestGiver", "Reward" },
-                values: new object[] { 8, null, false, 14, null, "He's British, of Course", "Margaret", "Emerald" });
 
             migrationBuilder.InsertData(
                 table: "Tablegames",
@@ -1072,7 +1058,14 @@ namespace RDR2Guide.Migrations
                 {
                     { 1, "Cheese", false, 4, "Bluegill" },
                     { 2, "Crayfish", false, 6, "Largemouth Bass" },
-                    { 3, "Special Lake Lure", true, 5, "Legendary Bluegill" }
+                    { 3, "Special Lake Lure", true, 5, "Legendary Bluegill" },
+                    { 4, "Corn", false, 14, "Bullhead Catfish" },
+                    { 5, "Special Swamp Lure", true, 14, "Legendary Bullhead Catfish" },
+                    { 6, "Corn", false, 4, "Chain Pickerel" },
+                    { 7, "Special River Lure", true, 4, "Legendary Chain Pickerel" },
+                    { 8, "Lake Lure", false, 14, "Lake Sturgeon" },
+                    { 9, "Special River Lure", true, 14, "Legendary Lake Sturgeon" },
+                    { 10, "Bread", false, 12, "Perch" }
                 });
 
             migrationBuilder.InsertData(
@@ -1085,6 +1078,7 @@ namespace RDR2Guide.Migrations
                     { 3, (byte)6, "Arabian", "Elite", (byte)6, null, 8, (byte)6, (byte)6 },
                     { 4, (byte)5, "Turkoman", "Standard", (byte)7, null, 8, (byte)6, (byte)5 },
                     { 5, (byte)3, "Appaloosa", "Standard", (byte)3, null, 12, (byte)3, (byte)4 },
+                    { 6, (byte)3, "Ardennes", "Standard", (byte)5, null, 14, (byte)3, (byte)4 },
                     { 7, (byte)3, "Belgian Draft Horse", "Heavy", (byte)3, null, 1, (byte)3, (byte)3 },
                     { 8, (byte)3, "Dutch Warmblood", "Standard", (byte)5, null, 1, (byte)4, (byte)6 },
                     { 9, (byte)3, "Hungarian Half-bred", "Standard", (byte)5, null, 4, (byte)3, (byte)4 },
@@ -1099,6 +1093,7 @@ namespace RDR2Guide.Migrations
                     { 1, null, true, 4, "Alaskan Ginseng" },
                     { 2, null, false, 6, "Oleander Sage" },
                     { 3, null, true, 3, "American Ginseng" },
+                    { 4, null, false, 14, "Hummingbird Sage" },
                     { 5, null, false, 4, "Golden Currant" },
                     { 6, null, false, 12, "English Mace" },
                     { 7, null, true, 15, "Desert Sage" },
@@ -1136,6 +1131,7 @@ namespace RDR2Guide.Migrations
                     { 5, null, false, 3, null, "The Smell of the Grease Paint", "Miss Marjorie", "Letter from Miss Marjorie, $40" },
                     { 6, null, false, 5, null, "The Iniquities of History", "Jeremiah Compson", "Honor" },
                     { 7, null, false, 5, null, "The Ties That Bind Us", "Sampson Black & Wendell White", "$40 or Positive Honor" },
+                    { 8, null, false, 14, null, "He's British, of Course", "Margaret", "Emerald" },
                     { 9, null, false, 13, null, "The Artist's Way", "Charles Chatenay", "Missable Otis Miller's Revolver" },
                     { 10, null, false, 13, null, "Duchesses and Other Animals", "Algernon Wasp", "$750, Exotic Hat, Algernon's Revolver" }
                 });
@@ -1202,16 +1198,6 @@ namespace RDR2Guide.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "UserFish",
-                columns: new[] { "FishId", "UserId" },
-                values: new object[,]
-                {
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 6, 2 }
-                });
-
-            migrationBuilder.InsertData(
                 table: "UserMiscellaneous",
                 columns: new[] { "MiscellaneousId", "UserId" },
                 values: new object[,]
@@ -1229,22 +1215,17 @@ namespace RDR2Guide.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "UserPlants",
-                columns: new[] { "PlantId", "UserId" },
-                values: new object[] { 4, 2 });
-
-            migrationBuilder.InsertData(
                 table: "UserTablegames",
                 columns: new[] { "TablegameId", "UserId" },
                 values: new object[,]
                 {
                     { 1, 1 },
                     { 2, 1 },
+                    { 3, 1 },
                     { 1, 2 },
                     { 2, 2 },
                     { 3, 2 },
                     { 4, 2 },
-                    { 5, 2 },
                     { 1, 3 },
                     { 2, 3 },
                     { 3, 3 }
@@ -1303,6 +1284,9 @@ namespace RDR2Guide.Migrations
                     { 2, 1 },
                     { 1, 2 },
                     { 2, 2 },
+                    { 4, 2 },
+                    { 5, 2 },
+                    { 6, 2 },
                     { 1, 3 },
                     { 2, 3 },
                     { 3, 3 }
@@ -1333,6 +1317,7 @@ namespace RDR2Guide.Migrations
                     { 1, 1 },
                     { 2, 1 },
                     { 1, 2 },
+                    { 4, 2 },
                     { 5, 2 },
                     { 6, 2 },
                     { 7, 2 },
