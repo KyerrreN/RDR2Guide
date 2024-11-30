@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Entities.Models
 {
@@ -34,7 +35,9 @@ namespace Entities.Models
         public Location Location { get; set; } = null!;
 
         // USERHORSE
+        [JsonIgnore]
         public ICollection<User> Users { get; } = [];
+        [JsonIgnore]
         public ICollection<UserHorse> UserHorses { get; } = [];
     }
 }

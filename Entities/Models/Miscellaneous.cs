@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Entities.Models
 {
@@ -11,8 +12,9 @@ namespace Entities.Models
         public string Name { get; set; }
 
         // RL
-
+        [JsonIgnore]
         public ICollection<User> Users { get; } = [];
+        [JsonIgnore]
         public ICollection<UserMiscellaneous> UserMiscellaneous { get; } = [];
     }
 }
