@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RDR2Guide.Presentation.Controllers
 {
@@ -19,14 +14,14 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public OkObjectResult GetAll()
         {
             var animals = _service.AnimalService.GetAll(false);
 
             return Ok(animals);
         }
         [HttpGet("{id:int}")]
-        public IActionResult GetById(int id)
+        public OkObjectResult GetById(int id)
         {
             var animal = _service.AnimalService.GetOne(id, false);
 
