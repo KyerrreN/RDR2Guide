@@ -16,7 +16,7 @@ namespace Repository.Configuration
                     Id = 1,
                     Name = "Cigarette Cards",
                     Amount = 144,
-                    Image = null,
+                    Image = "1.webp",
                     SidequestId = 1
                 },
                 new Collectible
@@ -24,7 +24,7 @@ namespace Repository.Configuration
                     Id = 2,
                     Name = "Rock Carvings",
                     Amount = 10,
-                    Image = null,
+                    Image = "2.webp",
                     SidequestId = 2    
                 },
                 new Collectible
@@ -32,7 +32,7 @@ namespace Repository.Configuration
                     Id = 3,
                     Name = "Dinosaur Bones",
                     Amount = 30,
-                    Image = null,
+                    Image = "3.webp",
                     SidequestId = 3
                 },
                 new Collectible
@@ -40,7 +40,7 @@ namespace Repository.Configuration
                     Id = 4,
                     Name = "Graves of your fallen companions",
                     Amount = 9,
-                    Image = null,
+                    Image = "4.jpg",
                     SidequestId = null
                 },
                 new Collectible
@@ -48,7 +48,7 @@ namespace Repository.Configuration
                     Id = 5,
                     Name = "Fish species",
                     Amount = 10,
-                    Image = null,
+                    Image = "5.webp",
                     SidequestId = null
                 },
                 new Collectible
@@ -56,7 +56,7 @@ namespace Repository.Configuration
                     Id = 6,
                     Name = "Hunting requests",
                     Amount = 5,
-                    Image = null,
+                    Image = "6.webp",
                     SidequestId = null
                 },
                 new Collectible
@@ -64,7 +64,7 @@ namespace Repository.Configuration
                     Id = 7,
                     Name = "Dreamcatchers",
                     Amount = 20,
-                    Image = null,
+                    Image = "7.webp",
                     SidequestId = null
                 },
                 new Collectible
@@ -72,7 +72,7 @@ namespace Repository.Configuration
                     Id = 8,
                     Name = "Weapons",
                     Amount = 48,
-                    Image = null,
+                    Image = "8.webp",
                     SidequestId = null
                 },
                 new Collectible
@@ -80,7 +80,7 @@ namespace Repository.Configuration
                     Id = 9,
                     Name = "Plant species",
                     Amount = 20,
-                    Image = null,
+                    Image = "9.webp",
                     SidequestId = null
                 },
                 new Collectible
@@ -88,7 +88,7 @@ namespace Repository.Configuration
                     Id = 10,
                     Name = "Gangs",
                     Amount = 6,
-                    Image = null,
+                    Image = "10.webp",
                     SidequestId = null
                 }
             );

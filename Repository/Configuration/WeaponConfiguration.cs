@@ -21,7 +21,7 @@ namespace Repository.Configuration
                     Accuracy = 2.8f,
                     Cost = 50,
                     IsUnique = false,
-                    Image = null,
+                    Image = "1.webp",
                     LocationId = 1
                 },
                 new Weapon
@@ -34,7 +34,7 @@ namespace Repository.Configuration
                     Accuracy = 2.8f,
                     Cost = null,
                     IsUnique = true,
-                    Image = null,
+                    Image = "2.webp",
                     LocationId = 2
                 },
                 new Weapon
@@ -47,7 +47,7 @@ namespace Repository.Configuration
                     Accuracy = 3f,
                     Cost = 84,
                     IsUnique = false,
-                    Image = null,
+                    Image = "3.webp",
                     LocationId = 1
                 },
                 new Weapon
@@ -60,7 +60,7 @@ namespace Repository.Configuration
                     Accuracy = 2.8f,
                     Cost = null,
                     IsUnique = true,
-                    Image = null,
+                    Image = "4.webp",
                     LocationId = 12
                 },
                 new Weapon
@@ -73,7 +73,7 @@ namespace Repository.Configuration
                     Accuracy = 2f,
                     Cost = 65,
                     IsUnique = false,
-                    Image = null,
+                    Image = "5.webp",
                     LocationId = 1
                 },
                 new Weapon
@@ -86,7 +86,7 @@ namespace Repository.Configuration
                     Accuracy = 2.8f,
                     Cost = 190,
                     IsUnique = false,
-                    Image = null,
+                    Image = "6.webp",
                     LocationId = 1
                 },
                 new Weapon
@@ -99,7 +99,7 @@ namespace Repository.Configuration
                     Accuracy = 3.2f,
                     Cost = 350,
                     IsUnique = false,
-                    Image = null,
+                    Image = "7.webp",
                     LocationId = 13
                 },
                 new Weapon
@@ -112,7 +112,7 @@ namespace Repository.Configuration
                     Accuracy = 3f,
                     Cost = 140,
                     IsUnique = false,
-                    Image = null,
+                    Image = "8.webp",
                     LocationId = 1
                 },
                 new Weapon
@@ -125,7 +125,7 @@ namespace Repository.Configuration
                     Accuracy = 2.7f,
                     Cost = 145,
                     IsUnique = false,
-                    Image = null,
+                    Image = "9.webp",
                     LocationId = 1
                 },
                 new Weapon
@@ -138,7 +138,7 @@ namespace Repository.Configuration
                     Accuracy = 1.8f,
                     Cost = 95,
                     IsUnique = false,
-                    Image = null,
+                    Image = "10.webp",
                     LocationId = 1
                 }
             );
