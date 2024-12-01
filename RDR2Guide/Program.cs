@@ -42,6 +42,8 @@ namespace RDR2Guide
 
             app.UseHttpsRedirection();
 
+            app.UseCors("CorsPolicy");
+
             app.UseAuthorization();
 
 
