@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     CollectibleId = 2
+                },
+                new UserCollectible
+                {
+                    UserId = 2,
+                    CollectibleId = 3
+                },
+                new UserCollectible
+                {
+                    UserId = 2,
+                    CollectibleId = 4
+                },
+                new UserCollectible
+                {
+                    UserId = 2,
+                    CollectibleId = 5
+                },
+                new UserCollectible
+                {
+                    UserId = 2,
+                    CollectibleId = 6
+                },
+                new UserCollectible
+                {
+                    UserId = 3,
+                    CollectibleId = 1
+                },
+                new UserCollectible
+                {
+                    UserId = 3,
+                    CollectibleId = 2
                 }
             );
         }

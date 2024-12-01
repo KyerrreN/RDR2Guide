@@ -18,17 +18,47 @@ namespace Repository.Configuration
                 new Miscellaneous
                 {
                     Id = 1,
-                    Name = "Kill any 5 Legendary Animals."
+                    Name = "Investigate any 5 shacks."
                 },
                 new Miscellaneous
                 {
                     Id = 2,
-                    Name = "Play each table game at least once."
+                    Name = "Kill any 5 Legendary Animals."
                 },
                 new Miscellaneous
                 {
                     Id = 3,
+                    Name = "Play each table game at least once."
+                },
+                new Miscellaneous
+                {
+                    Id = 4,
+                    Name = "Interact with 5 special characters."
+                },
+                new Miscellaneous
+                {
+                    Id = 5,
                     Name = "Take a bath at least once. (Available in hotels)"
+                },
+                new Miscellaneous
+                {
+                    Id = 6,
+                    Name = "Watch a show."
+                },
+                new Miscellaneous
+                {
+                    Id = 7,
+                    Name = "Watch a live show at the Theater."
+                },
+                new Miscellaneous
+                {
+                    Id = 8,
+                    Name = "Craft 1 recipe from six different category types."
+                },
+                new Miscellaneous
+                {
+                    Id = 9,
+                    Name = "Complete a Home Robbery, a Shop Robbery, a Coach Robbery and a Train Robbery."
                 }
             );
         }

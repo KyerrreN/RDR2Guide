@@ -32,6 +32,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     FishId = 2,
+                },
+                new UserFish
+                {
+                    UserId = 2,
+                    FishId = 4,
+                },
+                new UserFish
+                {
+                    UserId = 2,
+                    FishId = 5,
+                },
+                new UserFish
+                {
+                    UserId = 2,
+                    FishId = 6,
+                },
+                new UserFish
+                {
+                    UserId = 3,
+                    FishId = 1,
+                },
+                new UserFish
+                {
+                    UserId = 3,
+                    FishId = 2,
+                },
+                new UserFish
+                {
+                    UserId = 3,
+                    FishId = 3,
                 }
             );
         }

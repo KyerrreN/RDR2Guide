@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     FactionId = 2,
+                },
+                new UserFaction
+                {
+                    UserId = 2,
+                    FactionId = 4,
+                },
+                new UserFaction
+                {
+                    UserId = 2,
+                    FactionId = 5,
+                },
+                new UserFaction
+                {
+                    UserId = 2,
+                    FactionId = 6,
+                },
+                new UserFaction
+                {
+                    UserId = 3,
+                    FactionId = 1,
+                },
+                new UserFaction
+                {
+                    UserId = 3,
+                    FactionId = 2,
+                },
+                new UserFaction
+                {
+                    UserId = 3,
+                    FactionId = 3,
                 }
             );
         }

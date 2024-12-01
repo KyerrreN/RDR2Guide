@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     MiscellaneousId = 2,
+                },
+                new UserMiscellaneous
+                {
+                    UserId = 2,
+                    MiscellaneousId = 3,
+                },
+                new UserMiscellaneous
+                {
+                    UserId = 2,
+                    MiscellaneousId = 4,
+                },
+                new UserMiscellaneous
+                {
+                    UserId = 3,
+                    MiscellaneousId = 1,
+                },
+                new UserMiscellaneous
+                {
+                    UserId = 3,
+                    MiscellaneousId = 2,
+                },
+                new UserMiscellaneous
+                {
+                    UserId = 3,
+                    MiscellaneousId = 3,
+                },
+                new UserMiscellaneous
+                {
+                    UserId = 3,
+                    MiscellaneousId = 4,
                 }
             );
         }

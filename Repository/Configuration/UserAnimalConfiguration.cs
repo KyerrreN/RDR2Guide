@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     AnimalId = 2,
+                },
+                new UserAnimal
+                {
+                    UserId = 2,
+                    AnimalId = 3,
+                },
+                new UserAnimal
+                {
+                    UserId = 2,
+                    AnimalId = 4,
+                },
+                new UserAnimal
+                {
+                    UserId = 2,
+                    AnimalId = 5,
+                },
+                new UserAnimal
+                {
+                    UserId = 2,
+                    AnimalId = 6,
+                },
+                new UserAnimal
+                {
+                    UserId = 3,
+                    AnimalId = 2,
+                },
+                new UserAnimal
+                {
+                    UserId = 3,
+                    AnimalId = 5,
                 }
             );
         }

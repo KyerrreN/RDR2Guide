@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     TablegameId = 2,
+                },
+                new UserTablegame
+                {
+                    UserId = 2,
+                    TablegameId = 3,
+                },
+                new UserTablegame
+                {
+                    UserId = 2,
+                    TablegameId = 4,
+                },
+                new UserTablegame
+                {
+                    UserId = 1,
+                    TablegameId = 3,
+                },
+                new UserTablegame
+                {
+                    UserId = 3,
+                    TablegameId = 1,
+                },
+                new UserTablegame
+                {
+                    UserId = 3,
+                    TablegameId = 2,
+                },
+                new UserTablegame
+                {
+                    UserId = 3,
+                    TablegameId = 3,
                 }
             );
         }

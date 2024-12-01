@@ -35,6 +35,27 @@ namespace Repository.Configuration
                     Name = "Skinner Brothers",
                     Leader = "Otis Skinner",
                     Status = "Active"
+                },
+                new Faction
+                {
+                    Id = 4,
+                    Name = "Murfree Brood",
+                    Leader = "Walt Murfree",
+                    Status = "Active"
+                },
+                new Faction
+                {
+                    Id = 5,
+                    Name = "Laramie Gang",
+                    Leader = "Laramie Gang Leader",
+                    Status = "Active"
+                },
+                new Faction
+                {
+                    Id = 6,
+                    Name = "Del Lobo Gang",
+                    Leader = "Esteban Cortez",
+                    Status = "Active"
                 }
             );
         }

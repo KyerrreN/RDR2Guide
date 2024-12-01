@@ -31,6 +31,36 @@ namespace Repository.Configuration
                 {
                     UserId = 2,
                     HorseId = 2
+                },
+                new UserHorse
+                {
+                    UserId = 2,
+                    HorseId = 5
+                },
+                new UserHorse
+                {
+                    UserId = 3,
+                    HorseId = 1
+                },
+                new UserHorse
+                {
+                    UserId = 3,
+                    HorseId = 2
+                },
+                new UserHorse
+                {
+                    UserId = 3,
+                    HorseId = 3
+                },
+                new UserHorse
+                {
+                    UserId = 3,
+                    HorseId = 4
+                },
+                new UserHorse
+                {
+                    UserId = 3,
+                    HorseId = 5
                 }
             );
         }
