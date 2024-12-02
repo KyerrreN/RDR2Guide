@@ -950,13 +950,13 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Amount", "Image", "Name", "SidequestId" },
                 values: new object[,]
                 {
-                    { 4, (byte)9, "4.jpg", "Graves of your fallen companions", null },
-                    { 5, (byte)10, "5.webp", "Fish species", null },
-                    { 6, (byte)5, "6.webp", "Hunting requests", null },
-                    { 7, (byte)20, "7.webp", "Dreamcatchers", null },
-                    { 8, (byte)48, "8.webp", "Weapons", null },
-                    { 9, (byte)20, "9.webp", "Plant species", null },
-                    { 10, (byte)6, "10.webp", "Gangs", null }
+                    { 4, (byte)9, "collectibles/4.jpg", "Graves of your fallen companions", null },
+                    { 5, (byte)10, "collectibles/5.webp", "Fish species", null },
+                    { 6, (byte)5, "collectibles/6.webp", "Hunting requests", null },
+                    { 7, (byte)20, "collectibles/7.webp", "Dreamcatchers", null },
+                    { 8, (byte)48, "collectibles/8.webp", "Weapons", null },
+                    { 9, (byte)20, "collectibles/9.webp", "Plant species", null },
+                    { 10, (byte)6, "collectibles/10.webp", "Gangs", null }
                 });
 
             migrationBuilder.InsertData(
@@ -977,22 +977,22 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Image", "Name" },
                 values: new object[,]
                 {
-                    { 1, "1.webp", "Valentine" },
-                    { 2, "2.webp", "Strawberry" },
-                    { 3, "3.webp", "New Hanover" },
-                    { 4, "4.webp", "West Elizabeth" },
-                    { 5, "5.webp", "Scarlett Meadows" },
-                    { 6, "6.webp", "Bayou Nwa" },
-                    { 7, "7.webp", "Tumbleweed" },
-                    { 8, "8.webp", "Blackwater" },
-                    { 9, "9.webp", "Colter" },
-                    { 10, "10.webp", "Horseshoe Overlook" },
-                    { 11, "11.webp", "Cornwall Kerosene&Tar" },
-                    { 12, "12.webp", "Ambarino" },
-                    { 13, "13.webp", "Saint Denis" },
-                    { 14, "14.webp", "Lemoyne" },
-                    { 15, "15.webp", "New Austin" },
-                    { 16, "16.webp", "Guarma island" }
+                    { 1, "locations/1.webp", "Valentine" },
+                    { 2, "locations/2.webp", "Strawberry" },
+                    { 3, "locations/3.webp", "New Hanover" },
+                    { 4, "locations/4.webp", "West Elizabeth" },
+                    { 5, "locations/5.webp", "Scarlett Meadows" },
+                    { 6, "locations/6.webp", "Bayou Nwa" },
+                    { 7, "locations/7.webp", "Tumbleweed" },
+                    { 8, "locations/8.webp", "Blackwater" },
+                    { 9, "locations/9.webp", "Colter" },
+                    { 10, "locations/10.webp", "Horseshoe Overlook" },
+                    { 11, "locations/11.webp", "Cornwall Kerosene&Tar" },
+                    { 12, "locations/12.webp", "Ambarino" },
+                    { 13, "locations/13.webp", "Saint Denis" },
+                    { 14, "locations/14.webp", "Lemoyne" },
+                    { 15, "locations/15.webp", "New Austin" },
+                    { 16, "locations/16.webp", "Guarma island" }
                 });
 
             migrationBuilder.InsertData(
@@ -1039,16 +1039,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Hostility", "Image", "IsLegendary", "LocationId", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Friendly", "1.webp", false, 1, "American Domestic Cat" },
-                    { 2, "Enemy", "2.webp", false, 3, "Cougar" },
-                    { 3, "Neutral", "3.webp", false, 3, "California Valley Coyote" },
-                    { 4, "Neutral", "4.webp", false, 3, "Bison" },
-                    { 5, "Neutral", "5.webp", false, 3, "Black-tailed Jackrabbit" },
-                    { 6, "Neutral", "6.webp", false, 3, "American Fox" },
-                    { 7, "Neutral", "7.webp", false, 3, "American Pronghorn Doe" },
-                    { 8, "Neutral", "8.webp", false, 3, "American Red Fox" },
-                    { 9, "Enemy", "9.webp", false, 12, "American Black Bear" },
-                    { 10, "Neutral", "10.webp", false, 12, "American Crow" }
+                    { 1, "Friendly", "animals/1.webp", false, 1, "American Domestic Cat" },
+                    { 2, "Enemy", "animals/2.webp", false, 3, "Cougar" },
+                    { 3, "Neutral", "animals/3.webp", false, 3, "California Valley Coyote" },
+                    { 4, "Neutral", "animals/4.webp", false, 3, "Bison" },
+                    { 5, "Neutral", "animals/5.webp", false, 3, "Black-tailed Jackrabbit" },
+                    { 6, "Neutral", "animals/6.webp", false, 3, "American Fox" },
+                    { 7, "Neutral", "animals/7.webp", false, 3, "American Pronghorn Doe" },
+                    { 8, "Neutral", "animals/8.webp", false, 3, "American Red Fox" },
+                    { 9, "Enemy", "animals/9.webp", false, 12, "American Black Bear" },
+                    { 10, "Neutral", "animals/10.webp", false, 12, "American Crow" }
                 });
 
             migrationBuilder.InsertData(
@@ -1073,16 +1073,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Acceleration", "Breed", "Handling", "Health", "Image", "LocationId", "Speed", "Stamina" },
                 values: new object[,]
                 {
-                    { 1, (byte)4, "American Paint", "Standard", (byte)5, "1.webp", 7, (byte)4, (byte)5 },
-                    { 2, (byte)4, "American Standardbred", "Race", (byte)3, "2.webp", 1, (byte)5, (byte)3 },
-                    { 3, (byte)6, "Arabian", "Elite", (byte)6, "3.webp", 8, (byte)6, (byte)6 },
-                    { 4, (byte)5, "Turkoman", "Standard", (byte)7, "4.webp", 8, (byte)6, (byte)5 },
-                    { 5, (byte)3, "Appaloosa", "Standard", (byte)3, "5.webp", 12, (byte)3, (byte)4 },
-                    { 6, (byte)3, "Ardennes", "Standard", (byte)5, "6.webp", 14, (byte)3, (byte)4 },
-                    { 7, (byte)3, "Belgian Draft Horse", "Heavy", (byte)3, "7.webp", 1, (byte)3, (byte)3 },
-                    { 8, (byte)3, "Dutch Warmblood", "Standard", (byte)5, "8.webp", 1, (byte)4, (byte)6 },
-                    { 9, (byte)3, "Hungarian Half-bred", "Standard", (byte)5, "9.webp", 4, (byte)3, (byte)4 },
-                    { 10, (byte)2, "Kentucky Saddler", "Standard", (byte)3, "10.webp", 12, (byte)3, (byte)2 }
+                    { 1, (byte)4, "American Paint", "Standard", (byte)5, "horses/1.webp", 7, (byte)4, (byte)5 },
+                    { 2, (byte)4, "American Standardbred", "Race", (byte)3, "horses/2.webp", 1, (byte)5, (byte)3 },
+                    { 3, (byte)6, "Arabian", "Elite", (byte)6, "horses/3.webp", 8, (byte)6, (byte)6 },
+                    { 4, (byte)5, "Turkoman", "Standard", (byte)7, "horses/4.webp", 8, (byte)6, (byte)5 },
+                    { 5, (byte)3, "Appaloosa", "Standard", (byte)3, "horses/5.webp", 12, (byte)3, (byte)4 },
+                    { 6, (byte)3, "Ardennes", "Standard", (byte)5, "horses/6.webp", 14, (byte)3, (byte)4 },
+                    { 7, (byte)3, "Belgian Draft Horse", "Heavy", (byte)3, "horses/7.webp", 1, (byte)3, (byte)3 },
+                    { 8, (byte)3, "Dutch Warmblood", "Standard", (byte)5, "horses/8.webp", 1, (byte)4, (byte)6 },
+                    { 9, (byte)3, "Hungarian Half-bred", "Standard", (byte)5, "horses/9.webp", 4, (byte)3, (byte)4 },
+                    { 10, (byte)2, "Kentucky Saddler", "Standard", (byte)3, "horses/10.webp", 12, (byte)3, (byte)2 }
                 });
 
             migrationBuilder.InsertData(
@@ -1090,16 +1090,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Image", "IsEdible", "LocationId", "Name" },
                 values: new object[,]
                 {
-                    { 1, "1.webp", true, 4, "Alaskan Ginseng" },
-                    { 2, "2.webp", false, 6, "Oleander Sage" },
-                    { 3, "3.webp", true, 3, "American Ginseng" },
-                    { 4, "4.webp", false, 14, "Hummingbird Sage" },
-                    { 5, "5.webp", false, 4, "Golden Currant" },
-                    { 6, "6.webp", false, 12, "English Mace" },
-                    { 7, "7.webp", true, 15, "Desert Sage" },
-                    { 8, "8.webp", false, 6, "Common Bulrush" },
-                    { 9, "9.webp", false, 12, "Blackcurrant" },
-                    { 10, "10.webp", true, 4, "Burdock Root" }
+                    { 1, "plants/1.webp", true, 4, "Alaskan Ginseng" },
+                    { 2, "plants/2.webp", false, 6, "Oleander Sage" },
+                    { 3, "plants/3.webp", true, 3, "American Ginseng" },
+                    { 4, "plants/4.webp", false, 14, "Hummingbird Sage" },
+                    { 5, "plants/5.webp", false, 4, "Golden Currant" },
+                    { 6, "plants/6.webp", false, 12, "English Mace" },
+                    { 7, "plants/7.webp", true, 15, "Desert Sage" },
+                    { 8, "plants/8.webp", false, 6, "Common Bulrush" },
+                    { 9, "plants/9.webp", false, 12, "Blackcurrant" },
+                    { 10, "plants/10.webp", true, 4, "Burdock Root" }
                 });
 
             migrationBuilder.InsertData(
@@ -1124,16 +1124,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Image", "IsMissable", "LocationId", "MissableChapter", "Name", "QuestGiver", "Reward" },
                 values: new object[,]
                 {
-                    { 1, "1.webp", false, 1, null, "Smoking and other Hobbies", "Phineas T. Ramsbottom", "Vintage Civil War Handcuffs" },
-                    { 2, "2.webp", false, 2, null, "Geology for Beginners", "Francis Sinclair", "Rock Statue" },
-                    { 3, "3.webp", false, 1, null, "A Test of Faith", "Deborah MacGuiness", "Quartz Chunk" },
-                    { 4, "4.webp", false, 1, null, "The Noblest of Men, and a Woman", "Theodore Levin", "Letter from Theodore Levin, $350" },
-                    { 5, "5.webp", false, 3, null, "The Smell of the Grease Paint", "Miss Marjorie", "Letter from Miss Marjorie, $40" },
-                    { 6, "6.webp", false, 5, null, "The Iniquities of History", "Jeremiah Compson", "Honor" },
-                    { 7, "7.webp", false, 5, null, "The Ties That Bind Us", "Sampson Black & Wendell White", "$40 or Positive Honor" },
-                    { 8, "8.webp", false, 14, null, "He's British, of Course", "Margaret", "Emerald" },
-                    { 9, "9.webp", false, 13, null, "The Artist's Way", "Charles Chatenay", "Missable Otis Miller's Revolver" },
-                    { 10, "10.webp", false, 13, null, "Duchesses and Other Animals", "Algernon Wasp", "$750, Exotic Hat, Algernon's Revolver" }
+                    { 1, "sideQuests/1.webp", false, 1, null, "Smoking and other Hobbies", "Phineas T. Ramsbottom", "Vintage Civil War Handcuffs" },
+                    { 2, "sideQuests/2.webp", false, 2, null, "Geology for Beginners", "Francis Sinclair", "Rock Statue" },
+                    { 3, "sideQuests/3.webp", false, 1, null, "A Test of Faith", "Deborah MacGuiness", "Quartz Chunk" },
+                    { 4, "sideQuests/4.webp", false, 1, null, "The Noblest of Men, and a Woman", "Theodore Levin", "Letter from Theodore Levin, $350" },
+                    { 5, "sideQuests/5.webp", false, 3, null, "The Smell of the Grease Paint", "Miss Marjorie", "Letter from Miss Marjorie, $40" },
+                    { 6, "sideQuests/6.webp", false, 5, null, "The Iniquities of History", "Jeremiah Compson", "Honor" },
+                    { 7, "sideQuests/7.webp", false, 5, null, "The Ties That Bind Us", "Sampson Black & Wendell White", "$40 or Positive Honor" },
+                    { 8, "sideQuests/8.webp", false, 14, null, "He's British, of Course", "Margaret", "Emerald" },
+                    { 9, "sideQuests/9.webp", false, 13, null, "The Artist's Way", "Charles Chatenay", "Missable Otis Miller's Revolver" },
+                    { 10, "sideQuests/10.webp", false, 13, null, "Duchesses and Other Animals", "Algernon Wasp", "$750, Exotic Hat, Algernon's Revolver" }
                 });
 
             migrationBuilder.InsertData(
@@ -1141,16 +1141,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Image", "LocationId", "Name", "Number", "Reward" },
                 values: new object[,]
                 {
-                    { 1, "1.webp", 9, "Outlaws from the West", 1, "Mahogany Boy Tennessee Walker" },
-                    { 2, "2.webp", 10, "Pouring Forth Oil I", 1, null },
-                    { 3, "3.webp", 11, "Pouring Forth Oil II", 2, null },
-                    { 4, "4.webp", 13, "Angelo Bronte, A Man of Honor", 1, null },
-                    { 5, "5.webp", 13, "Help a Brother Out", 1, "$1.00 (Optional)" },
-                    { 6, "6.webp", 16, "Hell Hath No Fury", 1, null },
-                    { 7, "7.webp", 16, "Paradise Mercifully Departed", 1, null },
-                    { 8, "8.webp", 3, "Dear Uncle Tacitus", 1, null },
-                    { 9, "9.webp", 3, "That's Murfree Country", 1, "Mauser Pistol available in gunsmiths, Unlocks Legendary Bullgator" },
-                    { 10, "10.webp", 13, "A Fork in the Road", 1, null }
+                    { 1, "storyQuests/1.webp", 9, "Outlaws from the West", 1, "Mahogany Boy Tennessee Walker" },
+                    { 2, "storyQuests/2.webp", 10, "Pouring Forth Oil I", 1, null },
+                    { 3, "storyQuests/3.webp", 11, "Pouring Forth Oil II", 2, null },
+                    { 4, "storyQuests/4.webp", 13, "Angelo Bronte, A Man of Honor", 1, null },
+                    { 5, "storyQuests/5.webp", 13, "Help a Brother Out", 1, "$1.00 (Optional)" },
+                    { 6, "storyQuests/6.webp", 16, "Hell Hath No Fury", 1, null },
+                    { 7, "storyQuests/7.webp", 16, "Paradise Mercifully Departed", 1, null },
+                    { 8, "storyQuests/8.webp", 3, "Dear Uncle Tacitus", 1, null },
+                    { 9, "storyQuests/9.webp", 3, "That's Murfree Country", 1, "Mauser Pistol available in gunsmiths, Unlocks Legendary Bullgator" },
+                    { 10, "storyQuests/10.webp", 13, "A Fork in the Road", 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -1236,16 +1236,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Accuracy", "Cost", "Damage", "FiringRate", "Image", "IsUnique", "LocationId", "Name", "Range" },
                 values: new object[,]
                 {
-                    { 1, 2.8f, 50, 1.7f, 3f, "1.webp", false, 1, "Cattleman Revolver", 2f },
-                    { 2, 2.8f, null, 1.7f, 3f, "2.webp", true, 2, "Granger's Revolver", 2f },
-                    { 3, 3f, 84, 1.9f, 2.8f, "3.webp", false, 1, "Schofield Revolver", 2f },
-                    { 4, 2.8f, null, 1.7f, 3f, "4.webp", true, 12, "Flaco's Revolver", 2f },
-                    { 5, 2f, 65, 1.5f, 3.2f, "5.webp", false, 1, "Double-action Revolver", 2f },
-                    { 6, 2.8f, 190, 1.5f, 3.2f, "6.webp", false, 1, "High Roller Double-Action Revolver", 2f },
-                    { 7, 3.2f, 350, 1.5f, 3.1f, "7.webp", false, 13, "M1899 Pistol", 2f },
-                    { 8, 3f, 140, 2f, 2.6f, "8.webp", false, 1, "Evans Repeater", 2.6f },
-                    { 9, 2.7f, 145, 2.8f, 2.2f, "9.webp", false, 1, "Litchfield Repeater", 2.8f },
-                    { 10, 1.8f, 95, 2.8f, 2.5f, "10.webp", false, 1, "Double-barreled Shotgun", 1.5f }
+                    { 1, 2.8f, 50, 1.7f, 3f, "weapons/1.webp", false, 1, "Cattleman Revolver", 2f },
+                    { 2, 2.8f, null, 1.7f, 3f, "weapons/2.webp", true, 2, "Granger's Revolver", 2f },
+                    { 3, 3f, 84, 1.9f, 2.8f, "weapons/3.webp", false, 1, "Schofield Revolver", 2f },
+                    { 4, 2.8f, null, 1.7f, 3f, "weapons/4.webp", true, 12, "Flaco's Revolver", 2f },
+                    { 5, 2f, 65, 1.5f, 3.2f, "weapons/5.webp", false, 1, "Double-action Revolver", 2f },
+                    { 6, 2.8f, 190, 1.5f, 3.2f, "weapons/6.webp", false, 1, "High Roller Double-Action Revolver", 2f },
+                    { 7, 3.2f, 350, 1.5f, 3.1f, "weapons/7.webp", false, 13, "M1899 Pistol", 2f },
+                    { 8, 3f, 140, 2f, 2.6f, "weapons/8.webp", false, 1, "Evans Repeater", 2.6f },
+                    { 9, 2.7f, 145, 2.8f, 2.2f, "weapons/9.webp", false, 1, "Litchfield Repeater", 2.8f },
+                    { 10, 1.8f, 95, 2.8f, 2.5f, "weapons/10.webp", false, 1, "Double-barreled Shotgun", 1.5f }
                 });
 
             migrationBuilder.InsertData(
@@ -1253,9 +1253,9 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "Id", "Amount", "Image", "Name", "SidequestId" },
                 values: new object[,]
                 {
-                    { 1, (byte)144, "1.webp", "Cigarette Cards", 1 },
-                    { 2, (byte)10, "2.webp", "Rock Carvings", 2 },
-                    { 3, (byte)30, "3.webp", "Dinosaur Bones", 3 }
+                    { 1, (byte)144, "collectibles/1.webp", "Cigarette Cards", 1 },
+                    { 2, (byte)10, "collectibles/2.webp", "Rock Carvings", 2 },
+                    { 3, (byte)30, "collectibles/3.webp", "Dinosaur Bones", 3 }
                 });
 
             migrationBuilder.InsertData(

@@ -18,7 +18,7 @@ namespace Repository.Configuration
                     QuestGiver = "Phineas T. Ramsbottom",
                     IsMissable= false,
                     MissableChapter = null,
-                    Image = "1.webp",
+                    Image = "sideQuests/1.webp",
                     LocationId = 1
                 },
                 new Sidequest
@@ -29,7 +29,7 @@ namespace Repository.Configuration
                     QuestGiver = "Francis Sinclair",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "2.webp",
+                    Image = "sideQuests/2.webp",
                     LocationId = 2
                 },
                 new Sidequest
@@ -40,7 +40,7 @@ namespace Repository.Configuration
                     QuestGiver = "Deborah MacGuiness",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "3.webp",
+                    Image = "sideQuests/3.webp",
                     LocationId = 1
                 },
                 new Sidequest
@@ -51,7 +51,7 @@ namespace Repository.Configuration
                     QuestGiver = "Theodore Levin",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "4.webp",
+                    Image = "sideQuests/4.webp",
                     LocationId = 1
                 },
                 new Sidequest
@@ -62,7 +62,7 @@ namespace Repository.Configuration
                     QuestGiver = "Miss Marjorie",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "5.webp",
+                    Image = "sideQuests/5.webp",
                     LocationId = 3
                 },
                 new Sidequest
@@ -73,7 +73,7 @@ namespace Repository.Configuration
                     QuestGiver = "Jeremiah Compson",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "6.webp",
+                    Image = "sideQuests/6.webp",
                     LocationId = 5
                 },
                 new Sidequest
@@ -84,7 +84,7 @@ namespace Repository.Configuration
                     QuestGiver = "Sampson Black & Wendell White",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "7.webp",
+                    Image = "sideQuests/7.webp",
                     LocationId = 5
                 },
                 new Sidequest
@@ -95,7 +95,7 @@ namespace Repository.Configuration
                     QuestGiver = "Margaret",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "8.webp",
+                    Image = "sideQuests/8.webp",
                     LocationId = 14
                 },
                 new Sidequest
@@ -106,7 +106,7 @@ namespace Repository.Configuration
                     QuestGiver = "Charles Chatenay",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "9.webp",
+                    Image = "sideQuests/9.webp",
                     LocationId = 13
                 },
                 new Sidequest
@@ -117,7 +117,7 @@ namespace Repository.Configuration
                     QuestGiver = "Algernon Wasp",
                     IsMissable = false,
                     MissableChapter = null,
-                    Image = "10.webp",
+                    Image = "sideQuests/10.webp",
                     LocationId = 13
                 }
             );

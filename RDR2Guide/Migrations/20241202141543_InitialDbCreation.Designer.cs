@@ -11,7 +11,7 @@ using Repository;
 namespace RDR2Guide.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20241201195827_InitialDbCreation")]
+    [Migration("20241202141543_InitialDbCreation")]
     partial class InitialDbCreation
     {
         /// <inheritdoc />
@@ -105,7 +105,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 1,
                             Hostility = "Friendly",
-                            Image = "1.webp",
+                            Image = "animals/1.webp",
                             IsLegendary = false,
                             LocationId = 1,
                             Name = "American Domestic Cat"
@@ -114,7 +114,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 2,
                             Hostility = "Enemy",
-                            Image = "2.webp",
+                            Image = "animals/2.webp",
                             IsLegendary = false,
                             LocationId = 3,
                             Name = "Cougar"
@@ -123,7 +123,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 3,
                             Hostility = "Neutral",
-                            Image = "3.webp",
+                            Image = "animals/3.webp",
                             IsLegendary = false,
                             LocationId = 3,
                             Name = "California Valley Coyote"
@@ -132,7 +132,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 4,
                             Hostility = "Neutral",
-                            Image = "4.webp",
+                            Image = "animals/4.webp",
                             IsLegendary = false,
                             LocationId = 3,
                             Name = "Bison"
@@ -141,7 +141,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 5,
                             Hostility = "Neutral",
-                            Image = "5.webp",
+                            Image = "animals/5.webp",
                             IsLegendary = false,
                             LocationId = 3,
                             Name = "Black-tailed Jackrabbit"
@@ -150,7 +150,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 6,
                             Hostility = "Neutral",
-                            Image = "6.webp",
+                            Image = "animals/6.webp",
                             IsLegendary = false,
                             LocationId = 3,
                             Name = "American Fox"
@@ -159,7 +159,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 7,
                             Hostility = "Neutral",
-                            Image = "7.webp",
+                            Image = "animals/7.webp",
                             IsLegendary = false,
                             LocationId = 3,
                             Name = "American Pronghorn Doe"
@@ -168,7 +168,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 8,
                             Hostility = "Neutral",
-                            Image = "8.webp",
+                            Image = "animals/8.webp",
                             IsLegendary = false,
                             LocationId = 3,
                             Name = "American Red Fox"
@@ -177,7 +177,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 9,
                             Hostility = "Enemy",
-                            Image = "9.webp",
+                            Image = "animals/9.webp",
                             IsLegendary = false,
                             LocationId = 12,
                             Name = "American Black Bear"
@@ -186,7 +186,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 10,
                             Hostility = "Neutral",
-                            Image = "10.webp",
+                            Image = "animals/10.webp",
                             IsLegendary = false,
                             LocationId = 12,
                             Name = "American Crow"
@@ -337,7 +337,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 1,
                             Amount = (byte)144,
-                            Image = "1.webp",
+                            Image = "collectibles/1.webp",
                             Name = "Cigarette Cards",
                             SidequestId = 1
                         },
@@ -345,7 +345,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 2,
                             Amount = (byte)10,
-                            Image = "2.webp",
+                            Image = "collectibles/2.webp",
                             Name = "Rock Carvings",
                             SidequestId = 2
                         },
@@ -353,7 +353,7 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 3,
                             Amount = (byte)30,
-                            Image = "3.webp",
+                            Image = "collectibles/3.webp",
                             Name = "Dinosaur Bones",
                             SidequestId = 3
                         },
@@ -361,49 +361,49 @@ namespace RDR2Guide.Migrations
                         {
                             Id = 4,
                             Amount = (byte)9,
-                            Image = "4.jpg",
+                            Image = "collectibles/4.jpg",
                             Name = "Graves of your fallen companions"
                         },
                         new
                         {
                             Id = 5,
                             Amount = (byte)10,
-                            Image = "5.webp",
+                            Image = "collectibles/5.webp",
                             Name = "Fish species"
                         },
                         new
                         {
                             Id = 6,
                             Amount = (byte)5,
-                            Image = "6.webp",
+                            Image = "collectibles/6.webp",
                             Name = "Hunting requests"
                         },
                         new
                         {
                             Id = 7,
                             Amount = (byte)20,
-                            Image = "7.webp",
+                            Image = "collectibles/7.webp",
                             Name = "Dreamcatchers"
                         },
                         new
                         {
                             Id = 8,
                             Amount = (byte)48,
-                            Image = "8.webp",
+                            Image = "collectibles/8.webp",
                             Name = "Weapons"
                         },
                         new
                         {
                             Id = 9,
                             Amount = (byte)20,
-                            Image = "9.webp",
+                            Image = "collectibles/9.webp",
                             Name = "Plant species"
                         },
                         new
                         {
                             Id = 10,
                             Amount = (byte)6,
-                            Image = "10.webp",
+                            Image = "collectibles/10.webp",
                             Name = "Gangs"
                         });
                 });
@@ -636,7 +636,7 @@ namespace RDR2Guide.Migrations
                             Breed = "American Paint",
                             Handling = "Standard",
                             Health = (byte)5,
-                            Image = "1.webp",
+                            Image = "horses/1.webp",
                             LocationId = 7,
                             Speed = (byte)4,
                             Stamina = (byte)5
@@ -648,7 +648,7 @@ namespace RDR2Guide.Migrations
                             Breed = "American Standardbred",
                             Handling = "Race",
                             Health = (byte)3,
-                            Image = "2.webp",
+                            Image = "horses/2.webp",
                             LocationId = 1,
                             Speed = (byte)5,
                             Stamina = (byte)3
@@ -660,7 +660,7 @@ namespace RDR2Guide.Migrations
                             Breed = "Arabian",
                             Handling = "Elite",
                             Health = (byte)6,
-                            Image = "3.webp",
+                            Image = "horses/3.webp",
                             LocationId = 8,
                             Speed = (byte)6,
                             Stamina = (byte)6
@@ -672,7 +672,7 @@ namespace RDR2Guide.Migrations
                             Breed = "Turkoman",
                             Handling = "Standard",
                             Health = (byte)7,
-                            Image = "4.webp",
+                            Image = "horses/4.webp",
                             LocationId = 8,
                             Speed = (byte)6,
                             Stamina = (byte)5
@@ -684,7 +684,7 @@ namespace RDR2Guide.Migrations
                             Breed = "Appaloosa",
                             Handling = "Standard",
                             Health = (byte)3,
-                            Image = "5.webp",
+                            Image = "horses/5.webp",
                             LocationId = 12,
                             Speed = (byte)3,
                             Stamina = (byte)4
@@ -696,7 +696,7 @@ namespace RDR2Guide.Migrations
                             Breed = "Ardennes",
                             Handling = "Standard",
                             Health = (byte)5,
-                            Image = "6.webp",
+                            Image = "horses/6.webp",
                             LocationId = 14,
                             Speed = (byte)3,
                             Stamina = (byte)4
@@ -708,7 +708,7 @@ namespace RDR2Guide.Migrations
                             Breed = "Belgian Draft Horse",
                             Handling = "Heavy",
                             Health = (byte)3,
-                            Image = "7.webp",
+                            Image = "horses/7.webp",
                             LocationId = 1,
                             Speed = (byte)3,
                             Stamina = (byte)3
@@ -720,7 +720,7 @@ namespace RDR2Guide.Migrations
                             Breed = "Dutch Warmblood",
                             Handling = "Standard",
                             Health = (byte)5,
-                            Image = "8.webp",
+                            Image = "horses/8.webp",
                             LocationId = 1,
                             Speed = (byte)4,
                             Stamina = (byte)6
@@ -732,7 +732,7 @@ namespace RDR2Guide.Migrations
                             Breed = "Hungarian Half-bred",
                             Handling = "Standard",
                             Health = (byte)5,
-                            Image = "9.webp",
+                            Image = "horses/9.webp",
                             LocationId = 4,
                             Speed = (byte)3,
                             Stamina = (byte)4
@@ -744,7 +744,7 @@ namespace RDR2Guide.Migrations
                             Breed = "Kentucky Saddler",
                             Handling = "Standard",
                             Health = (byte)3,
-                            Image = "10.webp",
+                            Image = "horses/10.webp",
                             LocationId = 12,
                             Speed = (byte)3,
                             Stamina = (byte)2
@@ -774,97 +774,97 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 1,
-                            Image = "1.webp",
+                            Image = "locations/1.webp",
                             Name = "Valentine"
                         },
                         new
                         {
                             Id = 2,
-                            Image = "2.webp",
+                            Image = "locations/2.webp",
                             Name = "Strawberry"
                         },
                         new
                         {
                             Id = 3,
-                            Image = "3.webp",
+                            Image = "locations/3.webp",
                             Name = "New Hanover"
                         },
                         new
                         {
                             Id = 4,
-                            Image = "4.webp",
+                            Image = "locations/4.webp",
                             Name = "West Elizabeth"
                         },
                         new
                         {
                             Id = 5,
-                            Image = "5.webp",
+                            Image = "locations/5.webp",
                             Name = "Scarlett Meadows"
                         },
                         new
                         {
                             Id = 6,
-                            Image = "6.webp",
+                            Image = "locations/6.webp",
                             Name = "Bayou Nwa"
                         },
                         new
                         {
                             Id = 7,
-                            Image = "7.webp",
+                            Image = "locations/7.webp",
                             Name = "Tumbleweed"
                         },
                         new
                         {
                             Id = 8,
-                            Image = "8.webp",
+                            Image = "locations/8.webp",
                             Name = "Blackwater"
                         },
                         new
                         {
                             Id = 9,
-                            Image = "9.webp",
+                            Image = "locations/9.webp",
                             Name = "Colter"
                         },
                         new
                         {
                             Id = 10,
-                            Image = "10.webp",
+                            Image = "locations/10.webp",
                             Name = "Horseshoe Overlook"
                         },
                         new
                         {
                             Id = 11,
-                            Image = "11.webp",
+                            Image = "locations/11.webp",
                             Name = "Cornwall Kerosene&Tar"
                         },
                         new
                         {
                             Id = 12,
-                            Image = "12.webp",
+                            Image = "locations/12.webp",
                             Name = "Ambarino"
                         },
                         new
                         {
                             Id = 13,
-                            Image = "13.webp",
+                            Image = "locations/13.webp",
                             Name = "Saint Denis"
                         },
                         new
                         {
                             Id = 14,
-                            Image = "14.webp",
+                            Image = "locations/14.webp",
                             Name = "Lemoyne"
                         },
                         new
                         {
                             Id = 15,
-                            Image = "15.webp",
+                            Image = "locations/15.webp",
                             Name = "New Austin"
                         },
                         new
                         {
                             Id = 16,
-                            Image = "16.webp",
+                            Image = "locations/16.webp",
                             Name = "Guarma island"
                         });
                 });
@@ -964,7 +964,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 1,
-                            Image = "1.webp",
+                            Image = "plants/1.webp",
                             IsEdible = true,
                             LocationId = 4,
                             Name = "Alaskan Ginseng"
@@ -972,7 +972,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 2,
-                            Image = "2.webp",
+                            Image = "plants/2.webp",
                             IsEdible = false,
                             LocationId = 6,
                             Name = "Oleander Sage"
@@ -980,7 +980,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 3,
-                            Image = "3.webp",
+                            Image = "plants/3.webp",
                             IsEdible = true,
                             LocationId = 3,
                             Name = "American Ginseng"
@@ -988,7 +988,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 4,
-                            Image = "4.webp",
+                            Image = "plants/4.webp",
                             IsEdible = false,
                             LocationId = 14,
                             Name = "Hummingbird Sage"
@@ -996,7 +996,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 5,
-                            Image = "5.webp",
+                            Image = "plants/5.webp",
                             IsEdible = false,
                             LocationId = 4,
                             Name = "Golden Currant"
@@ -1004,7 +1004,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 6,
-                            Image = "6.webp",
+                            Image = "plants/6.webp",
                             IsEdible = false,
                             LocationId = 12,
                             Name = "English Mace"
@@ -1012,7 +1012,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 7,
-                            Image = "7.webp",
+                            Image = "plants/7.webp",
                             IsEdible = true,
                             LocationId = 15,
                             Name = "Desert Sage"
@@ -1020,7 +1020,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 8,
-                            Image = "8.webp",
+                            Image = "plants/8.webp",
                             IsEdible = false,
                             LocationId = 6,
                             Name = "Common Bulrush"
@@ -1028,7 +1028,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 9,
-                            Image = "9.webp",
+                            Image = "plants/9.webp",
                             IsEdible = false,
                             LocationId = 12,
                             Name = "Blackcurrant"
@@ -1036,7 +1036,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 10,
-                            Image = "10.webp",
+                            Image = "plants/10.webp",
                             IsEdible = true,
                             LocationId = 4,
                             Name = "Burdock Root"
@@ -1168,7 +1168,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 1,
-                            Image = "1.webp",
+                            Image = "sideQuests/1.webp",
                             IsMissable = false,
                             LocationId = 1,
                             Name = "Smoking and other Hobbies",
@@ -1178,7 +1178,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 2,
-                            Image = "2.webp",
+                            Image = "sideQuests/2.webp",
                             IsMissable = false,
                             LocationId = 2,
                             Name = "Geology for Beginners",
@@ -1188,7 +1188,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 3,
-                            Image = "3.webp",
+                            Image = "sideQuests/3.webp",
                             IsMissable = false,
                             LocationId = 1,
                             Name = "A Test of Faith",
@@ -1198,7 +1198,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 4,
-                            Image = "4.webp",
+                            Image = "sideQuests/4.webp",
                             IsMissable = false,
                             LocationId = 1,
                             Name = "The Noblest of Men, and a Woman",
@@ -1208,7 +1208,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 5,
-                            Image = "5.webp",
+                            Image = "sideQuests/5.webp",
                             IsMissable = false,
                             LocationId = 3,
                             Name = "The Smell of the Grease Paint",
@@ -1218,7 +1218,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 6,
-                            Image = "6.webp",
+                            Image = "sideQuests/6.webp",
                             IsMissable = false,
                             LocationId = 5,
                             Name = "The Iniquities of History",
@@ -1228,7 +1228,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 7,
-                            Image = "7.webp",
+                            Image = "sideQuests/7.webp",
                             IsMissable = false,
                             LocationId = 5,
                             Name = "The Ties That Bind Us",
@@ -1238,7 +1238,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 8,
-                            Image = "8.webp",
+                            Image = "sideQuests/8.webp",
                             IsMissable = false,
                             LocationId = 14,
                             Name = "He's British, of Course",
@@ -1248,7 +1248,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 9,
-                            Image = "9.webp",
+                            Image = "sideQuests/9.webp",
                             IsMissable = false,
                             LocationId = 13,
                             Name = "The Artist's Way",
@@ -1258,7 +1258,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 10,
-                            Image = "10.webp",
+                            Image = "sideQuests/10.webp",
                             IsMissable = false,
                             LocationId = 13,
                             Name = "Duchesses and Other Animals",
@@ -1301,7 +1301,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 1,
-                            Image = "1.webp",
+                            Image = "storyQuests/1.webp",
                             LocationId = 9,
                             Name = "Outlaws from the West",
                             Number = 1,
@@ -1310,7 +1310,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 2,
-                            Image = "2.webp",
+                            Image = "storyQuests/2.webp",
                             LocationId = 10,
                             Name = "Pouring Forth Oil I",
                             Number = 1
@@ -1318,7 +1318,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 3,
-                            Image = "3.webp",
+                            Image = "storyQuests/3.webp",
                             LocationId = 11,
                             Name = "Pouring Forth Oil II",
                             Number = 2
@@ -1326,7 +1326,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 4,
-                            Image = "4.webp",
+                            Image = "storyQuests/4.webp",
                             LocationId = 13,
                             Name = "Angelo Bronte, A Man of Honor",
                             Number = 1
@@ -1334,7 +1334,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 5,
-                            Image = "5.webp",
+                            Image = "storyQuests/5.webp",
                             LocationId = 13,
                             Name = "Help a Brother Out",
                             Number = 1,
@@ -1343,7 +1343,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 6,
-                            Image = "6.webp",
+                            Image = "storyQuests/6.webp",
                             LocationId = 16,
                             Name = "Hell Hath No Fury",
                             Number = 1
@@ -1351,7 +1351,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 7,
-                            Image = "7.webp",
+                            Image = "storyQuests/7.webp",
                             LocationId = 16,
                             Name = "Paradise Mercifully Departed",
                             Number = 1
@@ -1359,7 +1359,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 8,
-                            Image = "8.webp",
+                            Image = "storyQuests/8.webp",
                             LocationId = 3,
                             Name = "Dear Uncle Tacitus",
                             Number = 1
@@ -1367,7 +1367,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 9,
-                            Image = "9.webp",
+                            Image = "storyQuests/9.webp",
                             LocationId = 3,
                             Name = "That's Murfree Country",
                             Number = 1,
@@ -1376,7 +1376,7 @@ namespace RDR2Guide.Migrations
                         new
                         {
                             Id = 10,
-                            Image = "10.webp",
+                            Image = "storyQuests/10.webp",
                             LocationId = 13,
                             Name = "A Fork in the Road",
                             Number = 1
@@ -2386,7 +2386,7 @@ namespace RDR2Guide.Migrations
                             Cost = 50,
                             Damage = 1.7f,
                             FiringRate = 3f,
-                            Image = "1.webp",
+                            Image = "weapons/1.webp",
                             IsUnique = false,
                             LocationId = 1,
                             Name = "Cattleman Revolver",
@@ -2398,7 +2398,7 @@ namespace RDR2Guide.Migrations
                             Accuracy = 2.8f,
                             Damage = 1.7f,
                             FiringRate = 3f,
-                            Image = "2.webp",
+                            Image = "weapons/2.webp",
                             IsUnique = true,
                             LocationId = 2,
                             Name = "Granger's Revolver",
@@ -2411,7 +2411,7 @@ namespace RDR2Guide.Migrations
                             Cost = 84,
                             Damage = 1.9f,
                             FiringRate = 2.8f,
-                            Image = "3.webp",
+                            Image = "weapons/3.webp",
                             IsUnique = false,
                             LocationId = 1,
                             Name = "Schofield Revolver",
@@ -2423,7 +2423,7 @@ namespace RDR2Guide.Migrations
                             Accuracy = 2.8f,
                             Damage = 1.7f,
                             FiringRate = 3f,
-                            Image = "4.webp",
+                            Image = "weapons/4.webp",
                             IsUnique = true,
                             LocationId = 12,
                             Name = "Flaco's Revolver",
@@ -2436,7 +2436,7 @@ namespace RDR2Guide.Migrations
                             Cost = 65,
                             Damage = 1.5f,
                             FiringRate = 3.2f,
-                            Image = "5.webp",
+                            Image = "weapons/5.webp",
                             IsUnique = false,
                             LocationId = 1,
                             Name = "Double-action Revolver",
@@ -2449,7 +2449,7 @@ namespace RDR2Guide.Migrations
                             Cost = 190,
                             Damage = 1.5f,
                             FiringRate = 3.2f,
-                            Image = "6.webp",
+                            Image = "weapons/6.webp",
                             IsUnique = false,
                             LocationId = 1,
                             Name = "High Roller Double-Action Revolver",
@@ -2462,7 +2462,7 @@ namespace RDR2Guide.Migrations
                             Cost = 350,
                             Damage = 1.5f,
                             FiringRate = 3.1f,
-                            Image = "7.webp",
+                            Image = "weapons/7.webp",
                             IsUnique = false,
                             LocationId = 13,
                             Name = "M1899 Pistol",
@@ -2475,7 +2475,7 @@ namespace RDR2Guide.Migrations
                             Cost = 140,
                             Damage = 2f,
                             FiringRate = 2.6f,
-                            Image = "8.webp",
+                            Image = "weapons/8.webp",
                             IsUnique = false,
                             LocationId = 1,
                             Name = "Evans Repeater",
@@ -2488,7 +2488,7 @@ namespace RDR2Guide.Migrations
                             Cost = 145,
                             Damage = 2.8f,
                             FiringRate = 2.2f,
-                            Image = "9.webp",
+                            Image = "weapons/9.webp",
                             IsUnique = false,
                             LocationId = 1,
                             Name = "Litchfield Repeater",
@@ -2501,7 +2501,7 @@ namespace RDR2Guide.Migrations
                             Cost = 95,
                             Damage = 2.8f,
                             FiringRate = 2.5f,
-                            Image = "10.webp",
+                            Image = "weapons/10.webp",
                             IsUnique = false,
                             LocationId = 1,
                             Name = "Double-barreled Shotgun",

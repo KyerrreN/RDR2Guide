@@ -16,7 +16,7 @@ namespace Repository.Configuration
                     Id = 1,
                     Name = "American Domestic Cat",
                     Hostility = "Friendly",
-                    Image = "1.webp",
+                    Image = "animals/1.webp",
                     IsLegendary = false,
                     LocationId = 1
                 },
@@ -25,7 +25,7 @@ namespace Repository.Configuration
                     Id = 2,
                     Name = "Cougar",
                     Hostility = "Enemy",
-                    Image = "2.webp",
+                    Image = "animals/2.webp",
                     IsLegendary = false,
                     LocationId = 3
                 },
@@ -34,7 +34,7 @@ namespace Repository.Configuration
                     Id = 3,
                     Name = "California Valley Coyote",
                     Hostility = "Neutral",
-                    Image = "3.webp",
+                    Image = "animals/3.webp",
                     IsLegendary = false,
                     LocationId = 3
                 },
@@ -43,7 +43,7 @@ namespace Repository.Configuration
                     Id = 4,
                     Name = "Bison",
                     Hostility = "Neutral",
-                    Image = "4.webp",
+                    Image = "animals/4.webp",
                     IsLegendary = false,
                     LocationId = 3
                 },
@@ -52,7 +52,7 @@ namespace Repository.Configuration
                     Id = 5,
                     Name = "Black-tailed Jackrabbit",
                     Hostility = "Neutral",
-                    Image = "5.webp",
+                    Image = "animals/5.webp",
                     IsLegendary = false,
                     LocationId = 3
                 },
@@ -61,7 +61,7 @@ namespace Repository.Configuration
                     Id = 6,
                     Name = "American Fox",
                     Hostility = "Neutral",
-                    Image = "6.webp",
+                    Image = "animals/6.webp",
                     IsLegendary = false,
                     LocationId = 3
                 },
@@ -70,7 +70,7 @@ namespace Repository.Configuration
                     Id = 7,
                     Name = "American Pronghorn Doe",
                     Hostility = "Neutral",
-                    Image = "7.webp",
+                    Image = "animals/7.webp",
                     IsLegendary = false,
                     LocationId = 3
                 },
@@ -79,7 +79,7 @@ namespace Repository.Configuration
                     Id = 8,
                     Name = "American Red Fox",
                     Hostility = "Neutral",
-                    Image = "8.webp",
+                    Image = "animals/8.webp",
                     IsLegendary = false,
                     LocationId = 3
                 },
@@ -88,7 +88,7 @@ namespace Repository.Configuration
                     Id = 9,
                     Name = "American Black Bear",
                     Hostility = "Enemy",
-                    Image = "9.webp",
+                    Image = "animals/9.webp",
                     IsLegendary = false,
                     LocationId = 12
                 },
@@ -97,7 +97,7 @@ namespace Repository.Configuration
                     Id = 10,
                     Name = "American Crow",
                     Hostility = "Neutral",
-                    Image = "10.webp",
+                    Image = "animals/10.webp",
                     IsLegendary = false,
                     LocationId = 12
                 }
