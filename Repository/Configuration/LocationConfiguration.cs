@@ -19,97 +19,97 @@ namespace Repository.Configuration
                 {
                     Id = 1,
                     Name = "Valentine",
-                    Image = null,
+                    Image = "locations/1.webp",
                 },
                 new Location
                 {
                     Id = 2,
                     Name = "Strawberry",
-                    Image = null,
+                    Image = "locations/2.webp",
                 },
                 new Location
                 {
                     Id = 3,
                     Name = "New Hanover",
-                    Image = null,
+                    Image = "locations/3.webp",
                 },
                 new Location
                 {
                     Id = 4,
                     Name = "West Elizabeth",
-                    Image = null
+                    Image = "locations/4.webp"
                 },
                 new Location
                 {
                     Id = 5,
                     Name = "Scarlett Meadows",
-                    Image = null
+                    Image = "locations/5.webp"
                 },
                 new Location
                 {
                     Id = 6,
                     Name = "Bayou Nwa",
-                    Image = null
+                    Image = "locations/6.webp"
                 },
                 new Location
                 {
                     Id = 7,
                     Name = "Tumbleweed",
-                    Image = null
+                    Image = "locations/7.webp"
                 },
                 new Location
                 {
                     Id = 8,
                     Name = "Blackwater",
-                    Image = null
+                    Image = "locations/8.webp"
                 },
                 new Location
                 {
                     Id = 9,
                     Name = "Colter",
-                    Image = null
+                    Image = "locations/9.webp"
                 },
                 new Location
                 {
                     Id = 10,
                     Name = "Horseshoe Overlook",
-                    Image = null
+                    Image = "locations/10.webp"
                 },
                 new Location
                 {
                     Id = 11,
                     Name = "Cornwall Kerosene&Tar",
-                    Image = null
+                    Image = "locations/11.webp"
                 },
                 new Location
                 {
                     Id = 12,
                     Name = "Ambarino",
-                    Image = null
+                    Image = "locations/12.webp"
                 },
                 new Location
                 {
                     Id = 13,
                     Name = "Saint Denis",
-                    Image = null
+                    Image = "locations/13.webp"
                 },
                 new Location
                 {
                     Id = 14,
                     Name = "Lemoyne",
-                    Image = null
+                    Image = "locations/14.webp"
                 },
                 new Location
                 {
                     Id = 15,
                     Name = "New Austin",
-                    Image = null
+                    Image = "locations/15.webp"
                 },
                 new Location
                 {
                     Id = 16,
                     Name = "Guarma island",
-                    Image = null
+                    Image = "locations/16.webp"
                 }
             );
         }

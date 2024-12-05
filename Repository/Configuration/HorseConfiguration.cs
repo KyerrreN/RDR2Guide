@@ -20,7 +20,7 @@ namespace Repository.Configuration
                     Speed = 4,
                     Acceleration = 4,
                     Handling = "Standard",
-                    Image = null,
+                    Image = "horses/1.webp",
                     LocationId = 7
                 },
                 new Horse
@@ -32,7 +32,7 @@ namespace Repository.Configuration
                     Speed = 5,
                     Acceleration = 4,
                     Handling = "Race",
-                    Image = null,
+                    Image = "horses/2.webp",
                     LocationId = 1
                 },
                 new Horse
@@ -44,7 +44,7 @@ namespace Repository.Configuration
                     Speed = 6,
                     Acceleration = 6,
                     Handling = "Elite",
-                    Image = null,
+                    Image = "horses/3.webp",
                     LocationId = 8
                 },
                 new Horse
@@ -56,7 +56,7 @@ namespace Repository.Configuration
                     Speed = 6,
                     Acceleration = 5,
                     Handling = "Standard",
-                    Image = null,
+                    Image = "horses/4.webp",
                     LocationId = 8
                 },
                 new Horse
@@ -68,7 +68,7 @@ namespace Repository.Configuration
                     Speed = 3,
                     Acceleration = 3,
                     Handling = "Standard",
-                    Image = null,
+                    Image = "horses/5.webp",
                     LocationId = 12
                 },
                 new Horse
@@ -80,7 +80,7 @@ namespace Repository.Configuration
                     Speed = 3,
                     Acceleration = 3,
                     Handling = "Standard",
-                    Image = null,
+                    Image = "horses/6.webp",
                     LocationId = 14
                 },
                 new Horse
@@ -92,7 +92,7 @@ namespace Repository.Configuration
                     Speed = 3,
                     Acceleration = 3,
                     Handling = "Heavy",
-                    Image = null,
+                    Image = "horses/7.webp",
                     LocationId = 1
                 },
                 new Horse
@@ -104,7 +104,7 @@ namespace Repository.Configuration
                     Speed = 4,
                     Acceleration = 3,
                     Handling = "Standard",
-                    Image = null,
+                    Image = "horses/8.webp",
                     LocationId = 1
                 },
                 new Horse
@@ -116,7 +116,7 @@ namespace Repository.Configuration
                     Speed = 3,
                     Acceleration = 3,
                     Handling = "Standard",
-                    Image = null,
+                    Image = "horses/9.webp",
                     LocationId = 4
                 },
                 new Horse
@@ -128,7 +128,7 @@ namespace Repository.Configuration
                     Speed = 3,
                     Acceleration = 2,
                     Handling = "Standard",
-                    Image = null,
+                    Image = "horses/10.webp",
                     LocationId = 12
                 }
             );

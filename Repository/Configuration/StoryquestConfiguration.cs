@@ -17,7 +17,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "Outlaws from the West",
                     Reward = "Mahogany Boy Tennessee Walker",
-                    Image = null,
+                    Image = "storyQuests/1.webp",
                     LocationId = 9
                 },
                 new Storyquest
@@ -26,7 +26,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "Pouring Forth Oil I",
                     Reward = null,
-                    Image = null,
+                    Image = "storyQuests/2.webp",
                     LocationId = 10
                 },
                 new Storyquest
@@ -35,7 +35,7 @@ namespace Repository.Configuration
                     Number = 2,
                     Name = "Pouring Forth Oil II",
                     Reward = null,
-                    Image = null,
+                    Image = "storyQuests/3.webp",
                     LocationId = 11
                 },
                 new Storyquest
@@ -44,7 +44,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "Angelo Bronte, A Man of Honor",
                     Reward = null,
-                    Image = null,
+                    Image = "storyQuests/4.webp",
                     LocationId = 13
                 },
                 new Storyquest
@@ -53,7 +53,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "Help a Brother Out",
                     Reward = "$1.00 (Optional)",
-                    Image = null,
+                    Image = "storyQuests/5.webp",
                     LocationId = 13
                 },
                 new Storyquest
@@ -62,7 +62,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "Hell Hath No Fury",
                     Reward = null,
-                    Image = null,
+                    Image = "storyQuests/6.webp",
                     LocationId = 16
                 },
                 new Storyquest
@@ -71,7 +71,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "Paradise Mercifully Departed",
                     Reward = null,
-                    Image = null,
+                    Image = "storyQuests/7.webp",
                     LocationId = 16
                 },
                 new Storyquest
@@ -80,7 +80,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "Dear Uncle Tacitus",
                     Reward = null,
-                    Image = null,
+                    Image = "storyQuests/8.webp",
                     LocationId = 3
                 },
                 new Storyquest
@@ -89,7 +89,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "That's Murfree Country",
                     Reward = "Mauser Pistol available in gunsmiths, Unlocks Legendary Bullgator",
-                    Image = null,
+                    Image = "storyQuests/9.webp",
                     LocationId = 3
                 },
                 new Storyquest
@@ -98,7 +98,7 @@ namespace Repository.Configuration
                     Number = 1,
                     Name = "A Fork in the Road",
                     Reward = null,
-                    Image = null,
+                    Image = "storyQuests/10.webp",
                     LocationId = 13
                 }
             );
