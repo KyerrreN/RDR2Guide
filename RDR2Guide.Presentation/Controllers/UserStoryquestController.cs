@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/storyquests")]
+    [Route("api/users/{userId:guid}/storyquests")]
     [Authorize]
     public class UserStoryquestController : ControllerBase
     {

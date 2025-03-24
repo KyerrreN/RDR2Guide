@@ -46,8 +46,7 @@ namespace RDR2Guide.Presentation.Controllers
         {
             if (user is null)
                 throw new BadRequestException("User information DTO is null");
-
-            
+                        
             _userForAuthenticationValidator.ValidateAndThrow(user);
 
             if (!await _service.AuthenticationService.ValidateUser(user))
@@ -55,7 +54,9 @@ namespace RDR2Guide.Presentation.Controllers
                 return Unauthorized();
             }
 
-            return Ok(new { Token = await _service.AuthenticationService.CreateToken() });
+            var tokenDto = await _service.AuthenticationService.CreateToken(populateExp: true);
+
+            return Ok(tokenDto);
         }
     }
 }
