@@ -36,6 +36,7 @@ namespace RDR2Guide.Mapping_Profile
             CreateMap<UserTablegame, UserTablegameDto>();
             CreateMap<UserWeapon, UserWeaponDto>();
             CreateMap<Weapon,  WeaponDto>();
+            CreateMap<UserForRegistrationDto, User>();
         }
     }
 }

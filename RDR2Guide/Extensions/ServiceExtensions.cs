@@ -5,6 +5,7 @@ using Service.Contracts;
 using Service;
 using Entities.Models;
 using Microsoft.AspNetCore.Identity;
+using FluentValidation;
 
 namespace RDR2Guide.Extensions
 {
@@ -57,6 +58,11 @@ namespace RDR2Guide.Extensions
                 o.User.RequireUniqueEmail = false;
             }).AddEntityFrameworkStores<RepositoryContext>()
               .AddDefaultTokenProviders();
+        }
+        public static void ConfigureFluentValidation(this IServiceCollection services)
+        {
+            services.AddValidatorsFromAssemblyContaining(typeof(RDR2Guide.Presentation.AssemblyReference));
+            //services.AddValidatorsFromAssemblyContaining(typeof(ComputerHardwareStore.Presentation.AssemblyReference));
         }
     }
 }

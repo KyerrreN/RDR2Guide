@@ -36,5 +36,6 @@ namespace Service.Contracts
         IUserTablegameService UserTablegameService { get; } //
         IUserWeaponService UserWeaponService { get; } //
         IWeaponService WeaponService { get; } //
+        IAuthenticationService AuthenticationService { get; }
     }
 }

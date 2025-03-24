@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using Contracts;
+using Entities.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -39,10 +42,13 @@ namespace Service
         private readonly Lazy<IUserTablegameService> _userTablegameService;
         private readonly Lazy<IUserWeaponService> _userWeaponService;
         private readonly Lazy<IWeaponService> _weaponService;
-
+        private readonly Lazy<IAuthenticationService> _authenticationService;
 
         public ServiceManager(IRepositoryManager repositoryManager,
-                              IMapper mapper)
+                              IMapper mapper,
+                              UserManager<User> userManager,
+                              IConfiguration configuration,
+                              RoleManager<IdentityRole> roleManager)
         {
             _animalService = new Lazy<IAnimalService>(() => new AnimalService(repositoryManager, mapper));
             _challengeService = new Lazy<IChallengeService>(() => new ChallengeService(repositoryManager, mapper));
@@ -72,6 +78,7 @@ namespace Service
             _userTablegameService = new Lazy<IUserTablegameService>(() => new UserTablegameService(repositoryManager, mapper));
             _userWeaponService = new Lazy<IUserWeaponService>(() => new UserWeaponService(repositoryManager, mapper));
             _weaponService = new Lazy<IWeaponService>(() => new WeaponService(repositoryManager, mapper));
+            _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationService(userManager, configuration, mapper, roleManager));
         }
 
 
@@ -131,5 +138,6 @@ namespace Service
         public IUserWeaponService UserWeaponService => _userWeaponService.Value;
 
         public IWeaponService WeaponService => _weaponService.Value;
+        public IAuthenticationService AuthenticationService => _authenticationService.Value;
     }
 }
