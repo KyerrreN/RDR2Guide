@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Repository;
 using Service.Contracts;
 using Service;
+using Entities.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace RDR2Guide.Extensions
 {
@@ -43,6 +45,18 @@ namespace RDR2Guide.Extensions
         {
             services.AddScoped<IServiceManager, ServiceManager>();
         }
-
+        public static void ConfigureIdentity(this IServiceCollection services)
+        {
+            var builder = services.AddIdentity<User, IdentityRole>(o =>
+            {
+                o.Password.RequireDigit = true;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 8;
+                o.User.RequireUniqueEmail = false;
+            }).AddEntityFrameworkStores<RepositoryContext>()
+              .AddDefaultTokenProviders();
+        }
     }
 }

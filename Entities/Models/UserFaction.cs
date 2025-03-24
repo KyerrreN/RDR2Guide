@@ -2,7 +2,7 @@
 {
     public class UserFaction
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int FactionId { get; set; }
 
         // RL

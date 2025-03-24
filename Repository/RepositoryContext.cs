@@ -1,11 +1,12 @@
 ﻿using Entities.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Repository.Configuration;
 
 namespace Repository
 {
-    public class RepositoryContext : DbContext
+    public class RepositoryContext : IdentityDbContext<User>
     {
         public RepositoryContext(DbContextOptions options)
             : base(options)
@@ -14,7 +15,6 @@ namespace Repository
         }
 
         // Db Sets
-        public DbSet<User>? Users { get; set; } 
         public DbSet<Location>? Locations { get; set; } 
         public DbSet<Weapon>? Weapons { get; set; } 
         public DbSet<Animal>? Animals { get; set; } 
@@ -43,10 +43,16 @@ namespace Repository
         public DbSet<UserTablegame>? UserTablegames { get; set; }
         public DbSet<UserWeapon>? UserWeapons { get; set; } 
 
+
         // On Model Creating
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
+
             modelBuilder.ApplyConfiguration(new LocationConfiguration());
             modelBuilder.ApplyConfiguration(new WeaponConfiguration());
             modelBuilder.ApplyConfiguration(new AnimalConfiguration());
@@ -74,8 +80,6 @@ namespace Repository
             modelBuilder.ApplyConfiguration(new UserStoryquestConfiguration());
             modelBuilder.ApplyConfiguration(new UserTablegameConfiguration());
             modelBuilder.ApplyConfiguration(new UserWeaponConfiguration());
-
-            base.OnModelCreating(modelBuilder);
         }
     }
 }

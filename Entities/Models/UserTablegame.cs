@@ -2,7 +2,7 @@
 {
     public class UserTablegame
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int TablegameId { get; set; }
 
         // RL

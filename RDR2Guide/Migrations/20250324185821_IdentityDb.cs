@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -7,11 +8,51 @@
 namespace RDR2Guide.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDbCreation : Migration
+    public partial class IdentityDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AspNetRoles",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Nickname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Challenges",
                 columns: table => new
@@ -85,15 +126,181 @@ namespace RDR2Guide.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserLogins",
+                columns: table => new
+                {
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserTokens",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChallengeUser",
+                columns: table => new
+                {
+                    ChallengesId = table.Column<int>(type: "int", nullable: false),
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChallengeUser", x => new { x.ChallengesId, x.UsersId });
+                    table.ForeignKey(
+                        name: "FK_ChallengeUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChallengeUser_Challenges_ChallengesId",
+                        column: x => x.ChallengesId,
+                        principalTable: "Challenges",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserChallenges",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ChallengeId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserChallenges", x => new { x.UserId, x.ChallengeId });
+                    table.ForeignKey(
+                        name: "FK_UserChallenges_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserChallenges_Challenges_ChallengeId",
+                        column: x => x.ChallengeId,
+                        principalTable: "Challenges",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FactionUser",
+                columns: table => new
+                {
+                    FactionsId = table.Column<int>(type: "int", nullable: false),
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FactionUser", x => new { x.FactionsId, x.UsersId });
+                    table.ForeignKey(
+                        name: "FK_FactionUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FactionUser_Factions_FactionsId",
+                        column: x => x.FactionsId,
+                        principalTable: "Factions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -110,6 +317,30 @@ namespace RDR2Guide.Migrations
                     table.PrimaryKey("PK_Randomencounters", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Randomencounters_Factions_FactionId",
+                        column: x => x.FactionId,
+                        principalTable: "Factions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserFactions",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FactionId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserFactions", x => new { x.UserId, x.FactionId });
+                    table.ForeignKey(
+                        name: "FK_UserFactions_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserFactions_Factions_FactionId",
                         column: x => x.FactionId,
                         principalTable: "Factions",
                         principalColumn: "Id",
@@ -284,73 +515,49 @@ namespace RDR2Guide.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChallengeUser",
-                columns: table => new
-                {
-                    ChallengesId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChallengeUser", x => new { x.ChallengesId, x.UsersId });
-                    table.ForeignKey(
-                        name: "FK_ChallengeUser_Challenges_ChallengesId",
-                        column: x => x.ChallengesId,
-                        principalTable: "Challenges",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ChallengeUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FactionUser",
-                columns: table => new
-                {
-                    FactionsId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FactionUser", x => new { x.FactionsId, x.UsersId });
-                    table.ForeignKey(
-                        name: "FK_FactionUser_Factions_FactionsId",
-                        column: x => x.FactionsId,
-                        principalTable: "Factions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_FactionUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "MiscellaneousUser",
                 columns: table => new
                 {
                     MiscellaneousId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MiscellaneousUser", x => new { x.MiscellaneousId, x.UsersId });
+                    table.ForeignKey(
+                        name: "FK_MiscellaneousUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_MiscellaneousUser_Miscellaneous_MiscellaneousId",
                         column: x => x.MiscellaneousId,
                         principalTable: "Miscellaneous",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserMiscellaneous",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    MiscellaneousId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserMiscellaneous", x => new { x.UserId, x.MiscellaneousId });
                     table.ForeignKey(
-                        name: "FK_MiscellaneousUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_UserMiscellaneous_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserMiscellaneous_Miscellaneous_MiscellaneousId",
+                        column: x => x.MiscellaneousId,
+                        principalTable: "Miscellaneous",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -360,93 +567,21 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     TablegamesId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TablegameUser", x => new { x.TablegamesId, x.UsersId });
                     table.ForeignKey(
+                        name: "FK_TablegameUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_TablegameUser_Tablegames_TablegamesId",
                         column: x => x.TablegamesId,
                         principalTable: "Tablegames",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TablegameUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserChallenges",
-                columns: table => new
-                {
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    ChallengeId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserChallenges", x => new { x.UserId, x.ChallengeId });
-                    table.ForeignKey(
-                        name: "FK_UserChallenges_Challenges_ChallengeId",
-                        column: x => x.ChallengeId,
-                        principalTable: "Challenges",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserChallenges_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserFactions",
-                columns: table => new
-                {
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    FactionId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserFactions", x => new { x.UserId, x.FactionId });
-                    table.ForeignKey(
-                        name: "FK_UserFactions_Factions_FactionId",
-                        column: x => x.FactionId,
-                        principalTable: "Factions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserFactions_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserMiscellaneous",
-                columns: table => new
-                {
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    MiscellaneousId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserMiscellaneous", x => new { x.UserId, x.MiscellaneousId });
-                    table.ForeignKey(
-                        name: "FK_UserMiscellaneous_Miscellaneous_MiscellaneousId",
-                        column: x => x.MiscellaneousId,
-                        principalTable: "Miscellaneous",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserMiscellaneous_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -455,22 +590,22 @@ namespace RDR2Guide.Migrations
                 name: "UserTablegames",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     TablegameId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserTablegames", x => new { x.UserId, x.TablegameId });
                     table.ForeignKey(
-                        name: "FK_UserTablegames_Tablegames_TablegameId",
-                        column: x => x.TablegameId,
-                        principalTable: "Tablegames",
+                        name: "FK_UserTablegames_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserTablegames_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_UserTablegames_Tablegames_TablegameId",
+                        column: x => x.TablegameId,
+                        principalTable: "Tablegames",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -480,21 +615,21 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     RandomencountersId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RandomencounterUser", x => new { x.RandomencountersId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_RandomencounterUser_Randomencounters_RandomencountersId",
-                        column: x => x.RandomencountersId,
-                        principalTable: "Randomencounters",
+                        name: "FK_RandomencounterUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RandomencounterUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_RandomencounterUser_Randomencounters_RandomencountersId",
+                        column: x => x.RandomencountersId,
+                        principalTable: "Randomencounters",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -503,22 +638,22 @@ namespace RDR2Guide.Migrations
                 name: "UserRandomencounters",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     RandomencounterId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserRandomencounters", x => new { x.UserId, x.RandomencounterId });
                     table.ForeignKey(
-                        name: "FK_UserRandomencounters_Randomencounters_RandomencounterId",
-                        column: x => x.RandomencounterId,
-                        principalTable: "Randomencounters",
+                        name: "FK_UserRandomencounters_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserRandomencounters_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_UserRandomencounters_Randomencounters_RandomencounterId",
+                        column: x => x.RandomencounterId,
+                        principalTable: "Randomencounters",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -528,7 +663,7 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     AnimalsId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -540,9 +675,9 @@ namespace RDR2Guide.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AnimalUser_Users_UsersId",
+                        name: "FK_AnimalUser_AspNetUsers_UsersId",
                         column: x => x.UsersId,
-                        principalTable: "Users",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -551,7 +686,7 @@ namespace RDR2Guide.Migrations
                 name: "UserAnimals",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     AnimalId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -564,9 +699,9 @@ namespace RDR2Guide.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserAnimals_Users_UserId",
+                        name: "FK_UserAnimals_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -576,21 +711,21 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     FishId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_FishUser", x => new { x.FishId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_FishUser_Fish_FishId",
-                        column: x => x.FishId,
-                        principalTable: "Fish",
+                        name: "FK_FishUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FishUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_FishUser_Fish_FishId",
+                        column: x => x.FishId,
+                        principalTable: "Fish",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -599,22 +734,22 @@ namespace RDR2Guide.Migrations
                 name: "UserFish",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FishId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserFish", x => new { x.UserId, x.FishId });
                     table.ForeignKey(
-                        name: "FK_UserFish_Fish_FishId",
-                        column: x => x.FishId,
-                        principalTable: "Fish",
+                        name: "FK_UserFish_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserFish_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_UserFish_Fish_FishId",
+                        column: x => x.FishId,
+                        principalTable: "Fish",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -624,21 +759,21 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     HorsesId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HorseUser", x => new { x.HorsesId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_HorseUser_Horses_HorsesId",
-                        column: x => x.HorsesId,
-                        principalTable: "Horses",
+                        name: "FK_HorseUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_HorseUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_HorseUser_Horses_HorsesId",
+                        column: x => x.HorsesId,
+                        principalTable: "Horses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -647,22 +782,22 @@ namespace RDR2Guide.Migrations
                 name: "UserHorses",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     HorseId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserHorses", x => new { x.UserId, x.HorseId });
                     table.ForeignKey(
-                        name: "FK_UserHorses_Horses_HorseId",
-                        column: x => x.HorseId,
-                        principalTable: "Horses",
+                        name: "FK_UserHorses_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserHorses_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_UserHorses_Horses_HorseId",
+                        column: x => x.HorseId,
+                        principalTable: "Horses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -672,21 +807,21 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     PlantsId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PlantUser", x => new { x.PlantsId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_PlantUser_Plants_PlantsId",
-                        column: x => x.PlantsId,
-                        principalTable: "Plants",
+                        name: "FK_PlantUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PlantUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_PlantUser_Plants_PlantsId",
+                        column: x => x.PlantsId,
+                        principalTable: "Plants",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -695,22 +830,22 @@ namespace RDR2Guide.Migrations
                 name: "UserPlants",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PlantId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserPlants", x => new { x.UserId, x.PlantId });
                     table.ForeignKey(
-                        name: "FK_UserPlants_Plants_PlantId",
-                        column: x => x.PlantId,
-                        principalTable: "Plants",
+                        name: "FK_UserPlants_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserPlants_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_UserPlants_Plants_PlantId",
+                        column: x => x.PlantId,
+                        principalTable: "Plants",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -741,21 +876,21 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     SidequestsId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SidequestUser", x => new { x.SidequestsId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_SidequestUser_Sidequests_SidequestsId",
-                        column: x => x.SidequestsId,
-                        principalTable: "Sidequests",
+                        name: "FK_SidequestUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SidequestUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_SidequestUser_Sidequests_SidequestsId",
+                        column: x => x.SidequestsId,
+                        principalTable: "Sidequests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -764,22 +899,22 @@ namespace RDR2Guide.Migrations
                 name: "UserSidequests",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     SidequestId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserSidequests", x => new { x.UserId, x.SidequestId });
                     table.ForeignKey(
-                        name: "FK_UserSidequests_Sidequests_SidequestId",
-                        column: x => x.SidequestId,
-                        principalTable: "Sidequests",
+                        name: "FK_UserSidequests_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserSidequests_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_UserSidequests_Sidequests_SidequestId",
+                        column: x => x.SidequestId,
+                        principalTable: "Sidequests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -789,21 +924,21 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     StoryquestsId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StoryquestUser", x => new { x.StoryquestsId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_StoryquestUser_Storyquests_StoryquestsId",
-                        column: x => x.StoryquestsId,
-                        principalTable: "Storyquests",
+                        name: "FK_StoryquestUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_StoryquestUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_StoryquestUser_Storyquests_StoryquestsId",
+                        column: x => x.StoryquestsId,
+                        principalTable: "Storyquests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -812,22 +947,22 @@ namespace RDR2Guide.Migrations
                 name: "UserStoryquests",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     StoryquestId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserStoryquests", x => new { x.UserId, x.StoryquestId });
                     table.ForeignKey(
-                        name: "FK_UserStoryquests_Storyquests_StoryquestId",
-                        column: x => x.StoryquestId,
-                        principalTable: "Storyquests",
+                        name: "FK_UserStoryquests_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserStoryquests_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_UserStoryquests_Storyquests_StoryquestId",
+                        column: x => x.StoryquestId,
+                        principalTable: "Storyquests",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -836,16 +971,16 @@ namespace RDR2Guide.Migrations
                 name: "UserWeapon",
                 columns: table => new
                 {
-                    UsersId = table.Column<int>(type: "int", nullable: false),
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     WeaponsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserWeapon", x => new { x.UsersId, x.WeaponsId });
                     table.ForeignKey(
-                        name: "FK_UserWeapon_Users_UsersId",
+                        name: "FK_UserWeapon_AspNetUsers_UsersId",
                         column: x => x.UsersId,
-                        principalTable: "Users",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -860,16 +995,16 @@ namespace RDR2Guide.Migrations
                 name: "UserWeapons",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     WeaponId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserWeapons", x => new { x.UserId, x.WeaponId });
                     table.ForeignKey(
-                        name: "FK_UserWeapons_Users_UserId",
+                        name: "FK_UserWeapons_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -885,21 +1020,21 @@ namespace RDR2Guide.Migrations
                 columns: table => new
                 {
                     CollectiblesId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
+                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CollectibleUser", x => new { x.CollectiblesId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_CollectibleUser_Collectibles_CollectiblesId",
-                        column: x => x.CollectiblesId,
-                        principalTable: "Collectibles",
+                        name: "FK_CollectibleUser_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CollectibleUser_Users_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "Users",
+                        name: "FK_CollectibleUser_Collectibles_CollectiblesId",
+                        column: x => x.CollectiblesId,
+                        principalTable: "Collectibles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -908,24 +1043,43 @@ namespace RDR2Guide.Migrations
                 name: "UserCollectibles",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CollectibleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserCollectibles", x => new { x.UserId, x.CollectibleId });
                     table.ForeignKey(
+                        name: "FK_UserCollectibles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_UserCollectibles_Collectibles_CollectibleId",
                         column: x => x.CollectibleId,
                         principalTable: "Collectibles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserCollectibles_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "4b9d4e0f-e217-4cb8-9dfc-98615530aeb7", null, "User", "USER" },
+                    { "8273b272-fb26-42a0-ba3f-0a7117b8f674", null, "Editor", "EDITOR" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Nickname", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "40f7db0b-5cad-4cae-b82e-b4263eb90c40", 0, "40f7db0b-5cad-4cae-b82e-b4263eb90c40", null, false, false, null, "Anton123", null, "ANTON123", "AQAAAAIAAYagAAAAEOf0g11h6Lzb96i5ixOyCt9GI6PBz26eNSRkXK2whmMICOBbqI6Zg0C6F0ZqsPbF7w==", null, false, "05f27f9a-dc1b-4672-a22c-ac4a68e65c46", false, "Anton123" },
+                    { "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16", 0, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16", null, false, false, null, "Arthur123", null, "ARTHUR123", "AQAAAAIAAYagAAAAEN7e3KlFinT8sjvMRCBSUDEIVAa/657ow8ifblw0HVVMuSHOCScaZumEuxpZB9joXQ==", null, false, "4b776b6f-f3a3-4f31-815d-5c9138e28428", false, "Arthur123" },
+                    { "e78cdca8-703d-4993-aff8-6c722bb80609", 0, "e78cdca8-703d-4993-aff8-6c722bb80609", null, false, false, null, "Vadim123", null, "VADIM123", "AQAAAAIAAYagAAAAEFO2jmI1YiGfAmnpZgDzA/HC/hFn9V7Nk63La0r2pO4nfAM4oe9hYXAUC115ECi15Q==", null, false, "32eb44a7-2dc6-4c07-ac52-82a419dd10cf", false, "Vadim123" }
                 });
 
             migrationBuilder.InsertData(
@@ -1023,18 +1177,6 @@ namespace RDR2Guide.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Users",
-                column: "Id",
-                values: new object[]
-                {
-                    1,
-                    2,
-                    3,
-                    4,
-                    5
-                });
-
-            migrationBuilder.InsertData(
                 table: "Animals",
                 columns: new[] { "Id", "Hostility", "Image", "IsLegendary", "LocationId", "Name" },
                 values: new object[,]
@@ -1049,6 +1191,16 @@ namespace RDR2Guide.Migrations
                     { 8, "Neutral", "animals/8.webp", false, 3, "American Red Fox" },
                     { 9, "Enemy", "animals/9.webp", false, 12, "American Black Bear" },
                     { 10, "Neutral", "animals/10.webp", false, 12, "American Crow" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { "4b9d4e0f-e217-4cb8-9dfc-98615530aeb7", "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { "4b9d4e0f-e217-4cb8-9dfc-98615530aeb7", "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { "4b9d4e0f-e217-4cb8-9dfc-98615530aeb7", "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1158,16 +1310,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "ChallengeId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 3, 2 },
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 6, 2 },
-                    { 7, 2 },
-                    { 2, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 6, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 7, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1175,9 +1327,9 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "CollectibleId", "UserId" },
                 values: new object[,]
                 {
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 6, 2 }
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 6, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" }
                 });
 
             migrationBuilder.InsertData(
@@ -1185,16 +1337,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "FactionId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 6, 2 },
-                    { 1, 3 },
-                    { 2, 3 },
-                    { 3, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 6, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 1, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1202,16 +1354,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "MiscellaneousId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 3, 2 },
-                    { 4, 2 },
-                    { 1, 3 },
-                    { 2, 3 },
-                    { 3, 3 },
-                    { 4, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 1, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 4, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1219,16 +1371,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "TablegameId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 3, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 3, 2 },
-                    { 4, 2 },
-                    { 1, 3 },
-                    { 2, 3 },
-                    { 3, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 1, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 3, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1263,16 +1415,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "AnimalId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 3, 2 },
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 6, 2 },
-                    { 2, 3 },
-                    { 5, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 6, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 5, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1280,16 +1432,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "FishId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 6, 2 },
-                    { 1, 3 },
-                    { 2, 3 },
-                    { 3, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 6, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 1, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1297,16 +1449,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "HorseId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 5, 2 },
-                    { 1, 3 },
-                    { 2, 3 },
-                    { 3, 3 },
-                    { 4, 3 },
-                    { 5, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 1, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 4, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 5, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1314,16 +1466,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "PlantId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 6, 2 },
-                    { 7, 2 },
-                    { 8, 2 },
-                    { 9, 2 },
-                    { 3, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 6, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 7, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 8, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 9, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1331,16 +1483,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "RandomencounterId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 3, 2 },
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 6, 2 },
-                    { 7, 2 },
-                    { 3, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 6, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 7, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1348,16 +1500,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "SidequestId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 3, 2 },
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 1, 3 },
-                    { 2, 3 },
-                    { 3, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 1, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1365,16 +1517,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "StoryquestId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 3, 2 },
-                    { 4, 2 },
-                    { 5, 2 },
-                    { 1, 3 },
-                    { 2, 3 },
-                    { 3, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 4, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 5, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 1, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 3, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.InsertData(
@@ -1382,16 +1534,16 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "UserId", "WeaponId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 1, 2 },
-                    { 2, 1 },
-                    { 2, 2 },
-                    { 2, 3 },
-                    { 2, 4 },
-                    { 2, 5 },
-                    { 3, 1 },
-                    { 3, 2 },
-                    { 3, 3 }
+                    { "40f7db0b-5cad-4cae-b82e-b4263eb90c40", 1 },
+                    { "40f7db0b-5cad-4cae-b82e-b4263eb90c40", 2 },
+                    { "40f7db0b-5cad-4cae-b82e-b4263eb90c40", 3 },
+                    { "40f7db0b-5cad-4cae-b82e-b4263eb90c40", 4 },
+                    { "40f7db0b-5cad-4cae-b82e-b4263eb90c40", 5 },
+                    { "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16", 1 },
+                    { "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16", 2 },
+                    { "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16", 3 },
+                    { "e78cdca8-703d-4993-aff8-6c722bb80609", 1 },
+                    { "e78cdca8-703d-4993-aff8-6c722bb80609", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -1399,13 +1551,13 @@ namespace RDR2Guide.Migrations
                 columns: new[] { "CollectibleId", "UserId" },
                 values: new object[,]
                 {
-                    { 1, 1 },
-                    { 2, 1 },
-                    { 1, 2 },
-                    { 2, 2 },
-                    { 3, 2 },
-                    { 1, 3 },
-                    { 2, 3 }
+                    { 1, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 2, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 3, "40f7db0b-5cad-4cae-b82e-b4263eb90c40" },
+                    { 1, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 2, "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16" },
+                    { 1, "e78cdca8-703d-4993-aff8-6c722bb80609" },
+                    { 2, "e78cdca8-703d-4993-aff8-6c722bb80609" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -1417,6 +1569,45 @@ namespace RDR2Guide.Migrations
                 name: "IX_AnimalUser_UsersId",
                 table: "AnimalUser",
                 column: "UsersId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "RoleNameIndex",
+                table: "AspNetRoles",
+                column: "NormalizedName",
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserClaims_UserId",
+                table: "AspNetUserClaims",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserLogins_UserId",
+                table: "AspNetUserLogins",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_RoleId",
+                table: "AspNetUserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                table: "AspNetUsers",
+                column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ChallengeUser_UsersId",
@@ -1593,6 +1784,21 @@ namespace RDR2Guide.Migrations
                 name: "AnimalUser");
 
             migrationBuilder.DropTable(
+                name: "AspNetRoleClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserClaims");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserLogins");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
                 name: "ChallengeUser");
 
             migrationBuilder.DropTable(
@@ -1668,6 +1874,9 @@ namespace RDR2Guide.Migrations
                 name: "UserWeapons");
 
             migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
                 name: "Animals");
 
             migrationBuilder.DropTable(
@@ -1698,7 +1907,7 @@ namespace RDR2Guide.Migrations
                 name: "Tablegames");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Weapons");

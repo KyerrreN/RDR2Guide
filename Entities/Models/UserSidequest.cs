@@ -2,7 +2,7 @@
 {
     public class UserSidequest
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int SidequestId { get; set; }
 
         // RL

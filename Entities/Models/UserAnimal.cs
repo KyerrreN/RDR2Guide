@@ -2,7 +2,7 @@
 {
     public class UserAnimal
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int AnimalId { get; set; }
 
         // RL

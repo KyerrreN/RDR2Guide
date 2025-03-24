@@ -2,7 +2,7 @@
 {
     public class UserCollectible
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int CollectibleId { get; set; }
 
         // RL

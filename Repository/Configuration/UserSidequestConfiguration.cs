@@ -14,52 +14,52 @@ namespace Repository.Configuration
             (
                 new UserSidequest
                 {
-                    UserId = 1,
+                    UserId = "e78cdca8-703d-4993-aff8-6c722bb80609",
                     SidequestId = 1,
                 },
                 new UserSidequest
                 {
-                    UserId = 1,
+                    UserId = "e78cdca8-703d-4993-aff8-6c722bb80609",
                     SidequestId = 2,
                 },
                 new UserSidequest
                 {
-                    UserId = 2,
+                    UserId = "40f7db0b-5cad-4cae-b82e-b4263eb90c40",
                     SidequestId = 1,
                 },
                 new UserSidequest
                 {
-                    UserId = 2,
+                    UserId = "40f7db0b-5cad-4cae-b82e-b4263eb90c40",
                     SidequestId = 2,
                 },
                 new UserSidequest
                 {
-                    UserId = 2,
+                    UserId = "40f7db0b-5cad-4cae-b82e-b4263eb90c40",
                     SidequestId = 3,
                 },
                 new UserSidequest
                 {
-                    UserId = 2,
+                    UserId = "40f7db0b-5cad-4cae-b82e-b4263eb90c40",
                     SidequestId = 4,
                 },
                 new UserSidequest
                 {
-                    UserId = 2,
+                    UserId = "40f7db0b-5cad-4cae-b82e-b4263eb90c40",
                     SidequestId = 5,
                 },
                 new UserSidequest
                 {
-                    UserId = 3,
+                    UserId = "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16",
                     SidequestId = 1,
                 },
                 new UserSidequest
                 {
-                    UserId = 3,
+                    UserId = "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16",
                     SidequestId = 2,
                 },
                 new UserSidequest
                 {
-                    UserId = 3,
+                    UserId = "d3c2cf7b-0328-41db-8f5b-c381f0a7bf16",
                     SidequestId = 3,
                 }
             );

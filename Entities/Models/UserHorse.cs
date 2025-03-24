@@ -3,7 +3,7 @@ namespace Entities.Models
 {
     public class UserHorse
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int HorseId { get; set; }
 
         // rl

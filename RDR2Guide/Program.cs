@@ -29,6 +29,9 @@ namespace RDR2Guide
 
             builder.Services.AddAutoMapper(typeof(Program));
 
+            builder.Services.AddAuthentication();
+            builder.Services.ConfigureIdentity();
+
             var app = builder.Build();
 
             app.ConfigureExceptionHandler();
@@ -46,6 +49,7 @@ namespace RDR2Guide
 
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();
