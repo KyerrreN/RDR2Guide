@@ -6,6 +6,9 @@ using Service;
 using Entities.Models;
 using Microsoft.AspNetCore.Identity;
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace RDR2Guide.Extensions
 {
@@ -62,7 +65,30 @@ namespace RDR2Guide.Extensions
         public static void ConfigureFluentValidation(this IServiceCollection services)
         {
             services.AddValidatorsFromAssemblyContaining(typeof(RDR2Guide.Presentation.AssemblyReference));
-            //services.AddValidatorsFromAssemblyContaining(typeof(ComputerHardwareStore.Presentation.AssemblyReference));
+        }
+        public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
+        {
+            var jwtSettings = configuration.GetSection("JwtSettings");
+            var secretKey = Environment.GetEnvironmentVariable("SECRET");
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer((opt) =>
+            {
+                opt.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    ValidIssuer = jwtSettings["validIssuer"],
+                    ValidAudience = jwtSettings["validAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                };
+            });
         }
     }
 }

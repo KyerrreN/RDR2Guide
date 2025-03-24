@@ -31,6 +31,7 @@ namespace RDR2Guide
 
             builder.Services.AddAuthentication();
             builder.Services.ConfigureIdentity();
+            builder.Services.ConfigureJWT(builder.Configuration);
 
             builder.Services.ConfigureFluentValidation();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
     [Route("api/users/{userId:int}/factions")]
+    [Authorize]
     public class UserFactionController : ControllerBase
     {
         private readonly IServiceManager _service;

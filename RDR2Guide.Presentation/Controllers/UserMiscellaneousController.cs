@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
     [Route("api/users/{userId:int}/miscellaneous")]
+    [Authorize]
     public class UserMiscellaneousController : ControllerBase
     {
         private readonly IServiceManager _service;

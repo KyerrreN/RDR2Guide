@@ -1,5 +1,4 @@
 ﻿using Entities.Exceptions;
-using Entities.Models;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
@@ -13,10 +12,12 @@ namespace RDR2Guide.Presentation.Controllers
     {
         private readonly IServiceManager _service;
         private readonly IValidator<UserForRegistrationDto> _userForRegistrationValidator;
-        public AuthenticationController(IServiceManager service, IValidator<UserForRegistrationDto> userForRegistrationValidator)
+        private readonly IValidator<UserForAuthenticationDto> _userForAuthenticationValidator;
+        public AuthenticationController(IServiceManager service, IValidator<UserForRegistrationDto> userForRegistrationValidator, IValidator<UserForAuthenticationDto> userForAuthenticationValidator)
         {
             _service = service;
             _userForRegistrationValidator = userForRegistrationValidator;
+            _userForAuthenticationValidator = userForAuthenticationValidator;
         }
         [HttpPost]
         public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto userForRegistration)
@@ -39,6 +40,22 @@ namespace RDR2Guide.Presentation.Controllers
             }
 
             return StatusCode(201);
+        }
+        [HttpPost("login")]
+        public async Task<IActionResult> Authenticate([FromBody] UserForAuthenticationDto user)
+        {
+            if (user is null)
+                throw new BadRequestException("User information DTO is null");
+
+            
+            _userForAuthenticationValidator.ValidateAndThrow(user);
+
+            if (!await _service.AuthenticationService.ValidateUser(user))
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new { Token = await _service.AuthenticationService.CreateToken() });
         }
     }
 }

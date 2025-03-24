@@ -5,7 +5,7 @@ namespace Entities.Models
 {
     public class User : IdentityUser
     {
-        public string Nickname { get; set; } = null!;
+        public string Nickname { get; set; }
 
         // RELATIONSHIPS
 

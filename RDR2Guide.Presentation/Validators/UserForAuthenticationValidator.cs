@@ -3,14 +3,10 @@ using Shared.DTO;
 
 namespace RDR2Guide.Presentation.Validators
 {
-    public class UserForRegistrationValidator : AbstractValidator<UserForRegistrationDto>
+    public class UserForAuthenticationValidator : AbstractValidator<UserForAuthenticationDto>
     {
-        public UserForRegistrationValidator()
+        public UserForAuthenticationValidator()
         {
-            RuleFor(x => x.Nickname)
-                .NotEmpty()
-                .WithMessage("{PropertyName} cannot be null or empty");
-
             RuleFor(x => x.UserName)
                 .NotEmpty()
                 .WithMessage("{PropertyName} cannot be null or empty");
