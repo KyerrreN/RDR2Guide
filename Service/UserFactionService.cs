@@ -21,10 +21,10 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserFactionDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserFactionDto> GetAll(string userId, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var factions = _repository.UserFaction.GetUserFoundFactions(userId, trackChanges);
 
@@ -37,10 +37,10 @@ namespace Service
             return final;
         }
 
-        public UserFactionDto GetOne(int userId, int id, bool trackChanges)
+        public UserFactionDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var faction = _repository.UserFaction.GetFoundFaction(userId, id, trackChanges)
                 ?? throw new NotFoundException($"User with id: {userId} hasn't found faction with id: {id}");

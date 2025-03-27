@@ -21,7 +21,7 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserAnimalDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserAnimalDto> GetAll(string userId, bool trackChanges)
         {
             var useranimals = _repository.UserAnimal.GetUserFoundAnimals(userId, trackChanges);
 
@@ -35,12 +35,12 @@ namespace Service
             return final;
         }
 
-        public UserAnimalDto GetOne(int userId, int id, bool trackChanges)
+        public UserAnimalDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges);
+            //var user = _repository.User.GetUser(userId, trackChanges);
 
-            if (user is null)
-                throw new NotFoundException($"User with id: {userId} doesnt exist in the database");
+            //if (user is null)
+            //    throw new NotFoundException($"User with id: {userId} doesnt exist in the database");
 
             var animal = _repository.UserAnimal.GetFoundAnimal(userId, id, trackChanges);
 

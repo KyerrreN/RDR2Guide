@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserTablegameService
     {
-        BaseDto<UserTablegameDto> GetAll(int userId, bool trackChanges);
-        UserTablegameDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserTablegameDto> GetAll(string userId, bool trackChanges);
+        UserTablegameDto GetOne(string userId, int id, bool trackChanges);
     }
 }

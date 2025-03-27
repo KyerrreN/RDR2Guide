@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserRandomencounter GetFoundRandomEncounter(int userId, int randomEncounterId, bool trackChanges)
+        public UserRandomencounter GetFoundRandomEncounter(string userId, int randomEncounterId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.RandomencounterId.Equals(randomEncounterId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserRandomencounter> GetUserFoundRandomEncounter(int userId, bool trackChanges)
+        public IEnumerable<UserRandomencounter> GetUserFoundRandomEncounter(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

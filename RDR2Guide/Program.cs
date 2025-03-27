@@ -27,6 +27,8 @@ namespace RDR2Guide
             builder.Services.ConfigureIISIntegration();
             builder.Services.ConfigureSqlContext(builder.Configuration);
 
+            builder.Services.ConfigureSwagger();
+
             builder.Services.AddAutoMapper(typeof(Program));
 
             builder.Services.AddAuthentication();

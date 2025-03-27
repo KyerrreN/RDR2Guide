@@ -9,7 +9,7 @@ namespace Shared.DTO
 {
     public record UserPlantDto
     {
-        public int UserId { get; init; }
+        public string UserId { get; init; }
         public int PlantId { get; init; }
         public Plant Plant { get; init; } = null!;
     }

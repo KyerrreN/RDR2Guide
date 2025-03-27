@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserMiscellaneousService
     {
-        BaseDto<UserMiscellaneousDto> GetAll(int userId, bool trackChanges);
-        UserMiscellaneousDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserMiscellaneousDto> GetAll(string userId, bool trackChanges);
+        UserMiscellaneousDto GetOne(string userId, int id, bool trackChanges);
     }
 }

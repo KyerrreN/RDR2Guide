@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserHorse GetFoundHorse(int userId, int horseId, bool trackChanges)
+        public UserHorse GetFoundHorse(string userId, int horseId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.HorseId.Equals(horseId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserHorse> GetUserFoundHorses(int userId, bool trackChanges)
+        public IEnumerable<UserHorse> GetUserFoundHorses(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

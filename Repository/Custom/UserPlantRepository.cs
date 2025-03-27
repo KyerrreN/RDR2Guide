@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserPlant GetFoundPlant(int userId, int plantId, bool trackChanges)
+        public UserPlant GetFoundPlant(string userId, int plantId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.PlantId.Equals(plantId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserPlant> GetUserFoundPlants(int userId, bool trackChanges)
+        public IEnumerable<UserPlant> GetUserFoundPlants(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

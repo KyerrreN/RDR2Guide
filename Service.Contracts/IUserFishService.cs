@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserFishService
     {
-        BaseDto<UserFishDto> GetAll(int userId, bool trackChanges);
-        UserFishDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserFishDto> GetAll(string userId, bool trackChanges);
+        UserFishDto GetOne(string userId, int id, bool trackChanges);
     }
 }

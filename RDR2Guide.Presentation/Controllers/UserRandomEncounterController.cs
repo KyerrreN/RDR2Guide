@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/randomencounters")]
+    [Route("api/users/{userId}/randomencounters")]
     [Authorize]
     public class UserRandomEncounterController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userRe = _service.UserRandomencounterService.GetAll(userId, false);
 
@@ -30,7 +30,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{randomEncounterId:int}")]
-        public OkObjectResult GetOne(int userId, int randomEncounterId)
+        public OkObjectResult GetOne(string userId, int randomEncounterId)
         {
             var userRe = _service.UserRandomencounterService.GetOne(userId, randomEncounterId, false);
 

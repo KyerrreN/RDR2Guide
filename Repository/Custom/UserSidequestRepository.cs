@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserSidequest GetFoundSideQuest(int userId, int sideQuestId, bool trackChanges)
+        public UserSidequest GetFoundSideQuest(string userId, int sideQuestId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.SidequestId.Equals(sideQuestId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserSidequest> GetUserFoundSideQuests(int userId, bool trackChanges)
+        public IEnumerable<UserSidequest> GetUserFoundSideQuests(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

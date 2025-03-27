@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IUserWeaponRepository
     {
-        IEnumerable<UserWeapon> GetUserFoundWeapons(int userId, bool trackChanges);
-        UserWeapon GetFoundWeapon(int userId, int weaponId, bool trackChanges);
+        IEnumerable<UserWeapon> GetUserFoundWeapons(string userId, bool trackChanges);
+        UserWeapon GetFoundWeapon(string userId, int weaponId, bool trackChanges);
     }
 }

@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserChallenge GetFoundChallenge(int userId, int challengeId, bool trackChanges)
+        public UserChallenge GetFoundChallenge(string userId, int challengeId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.ChallengeId.Equals(challengeId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserChallenge> GetUserFoundChallenges(int userId, bool trackChanges)
+        public IEnumerable<UserChallenge> GetUserFoundChallenges(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

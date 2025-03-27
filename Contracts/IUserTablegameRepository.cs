@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IUserTablegameRepository
     {
-        IEnumerable<UserTablegame> GetUserFoundTableGames(int userId, bool trackChanges);
-        UserTablegame GetFoundTableGame(int userId, int tableGameId, bool trackChanges);
+        IEnumerable<UserTablegame> GetUserFoundTableGames(string userId, bool trackChanges);
+        UserTablegame GetFoundTableGame(string userId, int tableGameId, bool trackChanges);
     }
 }

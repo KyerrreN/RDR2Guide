@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserAnimal GetFoundAnimal(int userId, int animalId, bool trackChanges)
+        public UserAnimal GetFoundAnimal(string userId, int animalId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.AnimalId.Equals(animalId), trackChanges)
                 .Include(x => x.Animal)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserAnimal> GetUserFoundAnimals(int userId, bool trackChanges)
+        public IEnumerable<UserAnimal> GetUserFoundAnimals(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.Animal)

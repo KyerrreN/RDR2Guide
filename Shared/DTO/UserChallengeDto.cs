@@ -9,7 +9,7 @@ namespace Shared.DTO
 {
     public record UserChallengeDto
     {
-        public int UserId { get; init; }
+        public string UserId { get; init; }
         public int ChallengeId { get; init; }
         public Challenge Challenge { get; init; } = null!;
     }

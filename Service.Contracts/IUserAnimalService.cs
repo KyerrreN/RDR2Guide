@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserAnimalService
     {
-        BaseDto<UserAnimalDto> GetAll(int userId, bool trackChanges);
-        UserAnimalDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserAnimalDto> GetAll(string userId, bool trackChanges);
+        UserAnimalDto GetOne(string userId, int id, bool trackChanges);
     }
 }

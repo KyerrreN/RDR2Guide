@@ -21,10 +21,10 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserHorseDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserHorseDto> GetAll(string userId, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var horses = _repository.UserHorse.GetUserFoundHorses(userId, trackChanges);
 
@@ -37,10 +37,10 @@ namespace Service
             return final;
         }
 
-        public UserHorseDto GetOne(int userId, int id, bool trackChanges)
+        public UserHorseDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesn't exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesn't exist");
 
             var horse = _repository.UserHorse.GetFoundHorse(userId, id, trackChanges)
                 ?? throw new NotFoundException($"User with id: {userId} hasn't found horse with id: {id}");

@@ -9,7 +9,7 @@ namespace Contracts
 {
     public interface IUserPlantRepository
     {
-        IEnumerable<UserPlant> GetUserFoundPlants(int userId, bool trackChanges);
-        UserPlant GetFoundPlant(int userId, int plantId, bool trackChanges);
+        IEnumerable<UserPlant> GetUserFoundPlants(string userId, bool trackChanges);
+        UserPlant GetFoundPlant(string userId, int plantId, bool trackChanges);
     }
 }

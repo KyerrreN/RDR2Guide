@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserFaction GetFoundFaction(int userId, int factionId, bool trackChanges)
+        public UserFaction GetFoundFaction(string userId, int factionId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.FactionId.Equals(factionId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserFaction> GetUserFoundFactions(int userId, bool trackChanges)
+        public IEnumerable<UserFaction> GetUserFoundFactions(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

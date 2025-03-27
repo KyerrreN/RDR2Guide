@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserTablegame GetFoundTableGame(int userId, int tableGameId, bool trackChanges)
+        public UserTablegame GetFoundTableGame(string userId, int tableGameId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.TablegameId.Equals(tableGameId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserTablegame> GetUserFoundTableGames(int userId, bool trackChanges)
+        public IEnumerable<UserTablegame> GetUserFoundTableGames(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

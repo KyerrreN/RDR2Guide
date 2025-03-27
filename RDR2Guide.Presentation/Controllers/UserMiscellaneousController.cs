@@ -5,7 +5,7 @@ using Service.Contracts;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/miscellaneous")]
+    [Route("api/users/{userId}/miscellaneous")]
     [Authorize]
     public class UserMiscellaneousController : ControllerBase
     {
@@ -17,7 +17,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userMiscellaneous = _service.UserMiscellaneousService.GetAll(userId, false);
 
@@ -25,7 +25,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{miscellaneousId:int}")]
-        public OkObjectResult GetOne(int userId, int miscellaneousId)
+        public OkObjectResult GetOne(string userId, int miscellaneousId)
         {
             var userMiscellaneous = _service.UserMiscellaneousService.GetOne(userId, miscellaneousId, false);
 

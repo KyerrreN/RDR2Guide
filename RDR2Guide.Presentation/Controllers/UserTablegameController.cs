@@ -5,7 +5,7 @@ using Service.Contracts;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/tablegames")]
+    [Route("api/users/{userId}/tablegames")]
     [Authorize]
     public class UserTablegameController : ControllerBase
     {
@@ -17,7 +17,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userTablegames = _service.UserTablegameService.GetAll(userId, false);
 
@@ -25,7 +25,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{tablegameId:int}")]
-        public OkObjectResult GetOne(int userId, int tablegameId)
+        public OkObjectResult GetOne(string userId, int tablegameId)
         {
             var userTablegame = _service.UserTablegameService.GetOne(userId, tablegameId, false);
 

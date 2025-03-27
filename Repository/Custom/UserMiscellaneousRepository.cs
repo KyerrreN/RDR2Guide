@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserMiscellaneous GetFoundMiscellaneous(int userId, int miscellaneousId, bool trackChanges)
+        public UserMiscellaneous GetFoundMiscellaneous(string userId, int miscellaneousId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.MiscellaneousId.Equals(miscellaneousId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserMiscellaneous> GetUserFoundMiscellaneous(int userId, bool trackChanges)
+        public IEnumerable<UserMiscellaneous> GetUserFoundMiscellaneous(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

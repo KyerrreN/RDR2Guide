@@ -21,10 +21,10 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserTablegameDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserTablegameDto> GetAll(string userId, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var tablegame = _repository.UserTablegame.GetUserFoundTableGames(userId, trackChanges);
 
@@ -37,10 +37,10 @@ namespace Service
             return final;
         }
 
-        public UserTablegameDto GetOne(int userId, int id, bool trackChanges)
+        public UserTablegameDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var tablegame = _repository.UserTablegame.GetFoundTableGame(userId, id, trackChanges)
                 ?? throw new NotFoundException($"User with id: {userId} hasn't played a table game with id: {id}");

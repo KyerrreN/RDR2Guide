@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserWeapon GetFoundWeapon(int userId, int weaponId, bool trackChanges)
+        public UserWeapon GetFoundWeapon(string userId, int weaponId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.WeaponId.Equals(weaponId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserWeapon> GetUserFoundWeapons(int userId, bool trackChanges)
+        public IEnumerable<UserWeapon> GetUserFoundWeapons(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

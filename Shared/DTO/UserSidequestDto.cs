@@ -9,7 +9,7 @@ namespace Shared.DTO
 {
     public record UserSidequestDto
     {
-        public int UserId { get; init; }
+        public string UserId { get; init; }
         public int SidequestId { get; init; }
         public Sidequest Sidequest { get; init; } = null!;
     }

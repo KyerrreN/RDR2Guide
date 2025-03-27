@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserCollectibleService
     {
-        BaseDto<UserCollectibleDto> GetAll(int userId, bool trackChanges);
-        UserCollectibleDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserCollectibleDto> GetAll(string userId, bool trackChanges);
+        UserCollectibleDto GetOne(string userId, int id, bool trackChanges);
     }
 }

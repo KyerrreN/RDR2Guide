@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserFactionService
     {
-        BaseDto<UserFactionDto> GetAll(int userId, bool trackChanges);
-        UserFactionDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserFactionDto> GetAll(string userId, bool trackChanges);
+        UserFactionDto GetOne(string userId, int id, bool trackChanges);
     }
 }

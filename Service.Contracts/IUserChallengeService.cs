@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserChallengeService
     {
-        BaseDto<UserChallengeDto> GetAll(int userId, bool trackChanges);
-        UserChallengeDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserChallengeDto> GetAll(string userId, bool trackChanges);
+        UserChallengeDto GetOne(string userId, int id, bool trackChanges);
     }
 }

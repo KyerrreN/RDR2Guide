@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserHorseService
     {
-        BaseDto<UserHorseDto> GetAll(int userId, bool trackChanges);
-        UserHorseDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserHorseDto> GetAll(string userId, bool trackChanges);
+        UserHorseDto GetOne(string userId, int id, bool trackChanges);
     }
 }

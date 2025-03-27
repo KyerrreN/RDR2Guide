@@ -21,10 +21,10 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserPlantDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserPlantDto> GetAll(string userId, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var plants = _repository.UserPlant.GetUserFoundPlants(userId, trackChanges);
 
@@ -37,10 +37,10 @@ namespace Service
             return final;
         }
 
-        public UserPlantDto GetOne(int userId, int id, bool trackChanges)
+        public UserPlantDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var plant = _repository.UserPlant.GetFoundPlant(userId, id, trackChanges)
                 ?? throw new NotFoundException($"User with id: {userId} hasn't collected plant with id: {id}");

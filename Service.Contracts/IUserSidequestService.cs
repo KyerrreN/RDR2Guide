@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserSidequestService
     {
-        BaseDto<UserSidequestDto> GetAll(int userId, bool trackChanges);
-        UserSidequestDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserSidequestDto> GetAll(string userId, bool trackChanges);
+        UserSidequestDto GetOne(string userId, int id, bool trackChanges);
     }
 }

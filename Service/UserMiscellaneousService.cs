@@ -21,10 +21,10 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserMiscellaneousDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserMiscellaneousDto> GetAll(string userId, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var miscellaneous = _repository.UserMiscellaneous.GetUserFoundMiscellaneous(userId, trackChanges);
 
@@ -38,10 +38,10 @@ namespace Service
             return final;
         }
 
-        public UserMiscellaneousDto GetOne(int userId, int id, bool trackChanges)
+        public UserMiscellaneousDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var miscellaneous = _repository.UserMiscellaneous.GetFoundMiscellaneous(userId, id, trackChanges)
                 ?? throw new NotFoundException($"User with id: {userId} hasn't found miscellaneous with id: {id}");

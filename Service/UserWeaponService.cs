@@ -21,10 +21,10 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserWeaponDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserWeaponDto> GetAll(string userId, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var weapon = _repository.UserWeapon.GetUserFoundWeapons(userId, trackChanges);
 
@@ -37,10 +37,10 @@ namespace Service
             return final;
         }
 
-        public UserWeaponDto GetOne(int userId, int id, bool trackChanges)
+        public UserWeaponDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var weapon = _repository.UserWeapon.GetFoundWeapon(userId, id, trackChanges)
                 ?? throw new NotFoundException($"User with id: {userId} hasn't found weapon with id: {id}");

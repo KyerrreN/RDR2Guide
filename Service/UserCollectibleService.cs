@@ -21,10 +21,10 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserCollectibleDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserCollectibleDto> GetAll(string userId, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var collectibles = _repository.UserCollectible.GetUserFoundCollectibles(userId, trackChanges);
 
@@ -37,10 +37,10 @@ namespace Service
             return final;
         }
 
-        public UserCollectibleDto GetOne(int userId, int id, bool trackChanges)
+        public UserCollectibleDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var collectible = _repository.UserCollectible.GetFoundCollectible(userId, id, trackChanges)
                 ?? throw new NotFoundException($"User with id: {userId} hasn't found collectible with id: {id}");

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/challenges")]
+    [Route("api/users/{userId}/challenges")]
     [Authorize]
     public class UserChallengeController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userChallenges = _service.UserChallengeService.GetAll(userId, false);
 
@@ -30,7 +30,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{challengeId:int}")]
-        public OkObjectResult GetOne(int userId, int challengeId)
+        public OkObjectResult GetOne(string userId, int challengeId)
         {
             var userChallenge = _service.UserChallengeService.GetOne(userId, challengeId, false);
 

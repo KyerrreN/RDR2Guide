@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/sidequests")]
+    [Route("api/users/{userId}/sidequests")]
     [Authorize]
     public class UserSidequestController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userSq = _service.UserSidequestService.GetAll(userId, false);
 
@@ -30,7 +30,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{sidequestId:int}")]
-        public OkObjectResult GetOne(int userId, int sidequestId)
+        public OkObjectResult GetOne(string userId, int sidequestId)
         {
             var userSq = _service.UserSidequestService.GetOne(userId, sidequestId, false);
 

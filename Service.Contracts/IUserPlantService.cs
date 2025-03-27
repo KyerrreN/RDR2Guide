@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserPlantService
     {
-        BaseDto<UserPlantDto> GetAll(int userId, bool trackChanges);
-        UserPlantDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserPlantDto> GetAll(string userId, bool trackChanges);
+        UserPlantDto GetOne(string userId, int id, bool trackChanges);
     }
 }

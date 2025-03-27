@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserWeaponService
     {
-        BaseDto<UserWeaponDto> GetAll(int userId, bool trackChanges);
-        UserWeaponDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserWeaponDto> GetAll(string userId, bool trackChanges);
+        UserWeaponDto GetOne(string userId, int id, bool trackChanges);
     }
 }

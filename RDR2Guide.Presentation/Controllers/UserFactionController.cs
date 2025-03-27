@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/factions")]
+    [Route("api/users/{userId}/factions")]
     [Authorize]
     public class UserFactionController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userFaction = _service.UserFactionService.GetAll(userId, false);
 
@@ -30,7 +30,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{factionId:int}")]
-        public OkObjectResult GetOne(int userId, int factionId)
+        public OkObjectResult GetOne(string userId, int factionId)
         {
             var userFaction = _service.UserFactionService.GetOne(userId, factionId, false);
 

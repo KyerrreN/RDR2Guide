@@ -21,10 +21,10 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
-        public BaseDto<UserRandomencounterDto> GetAll(int userId, bool trackChanges)
+        public BaseDto<UserRandomencounterDto> GetAll(string userId, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var re = _repository.UserRandomencounter.GetUserFoundRandomEncounter(userId, trackChanges);
 
@@ -37,10 +37,10 @@ namespace Service
             return final;
         }
 
-        public UserRandomencounterDto GetOne(int userId, int id, bool trackChanges)
+        public UserRandomencounterDto GetOne(string userId, int id, bool trackChanges)
         {
-            var user = _repository.User.GetUser(userId, trackChanges)
-                ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
+            //var user = _repository.User.GetUser(userId, trackChanges)
+            //    ?? throw new NotFoundException($"User with id: {userId} doesnt exist");
 
             var re = _repository.UserRandomencounter.GetFoundRandomEncounter(userId, id, trackChanges)
                 ?? throw new NotFoundException($"User with id: {userId} hasn't found random encounter with id: {id}");

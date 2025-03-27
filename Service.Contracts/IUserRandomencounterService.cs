@@ -9,7 +9,7 @@ namespace Service.Contracts
 {
     public interface IUserRandomencounterService
     {
-        BaseDto<UserRandomencounterDto> GetAll(int userId, bool trackChanges);
-        UserRandomencounterDto GetOne(int userId, int id, bool trackChanges);
+        BaseDto<UserRandomencounterDto> GetAll(string userId, bool trackChanges);
+        UserRandomencounterDto GetOne(string userId, int id, bool trackChanges);
     }
 }

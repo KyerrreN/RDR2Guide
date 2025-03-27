@@ -15,7 +15,7 @@ namespace Repository.Custom
         {
         }
 
-        public UserCollectible GetFoundCollectible(int userId, int collectibleId, bool trackChanges)
+        public UserCollectible GetFoundCollectible(string userId, int collectibleId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.CollectibleId.Equals(collectibleId), trackChanges)
                 .Include(x => x.User)
@@ -23,7 +23,7 @@ namespace Repository.Custom
                 .SingleOrDefault();
         }
 
-        public IEnumerable<UserCollectible> GetUserFoundCollectibles(int userId, bool trackChanges)
+        public IEnumerable<UserCollectible> GetUserFoundCollectibles(string userId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId), trackChanges)
                 .Include(x => x.User)

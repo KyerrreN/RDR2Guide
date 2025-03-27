@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/collectibles")]
+    [Route("api/users/{userId}/collectibles")]
     [Authorize]
     public class UserCollectibleController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userCollectibles = _service.UserCollectibleService.GetAll(userId, false);
 
@@ -30,7 +30,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{collectibleId:int}")]
-        public OkObjectResult GetOne(int userId, int collectibleId)
+        public OkObjectResult GetOne(string userId, int collectibleId)
         {
             var userCollectible = _service.UserCollectibleService.GetOne(userId, collectibleId, false);
 

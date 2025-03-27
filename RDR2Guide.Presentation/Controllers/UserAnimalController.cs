@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/animals")]
+    [Route("api/users/{userId}/animals")]
     [Authorize]
     public class UserAnimalController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userAnimals = _service.UserAnimalService.GetAll(userId, false);
 
@@ -30,7 +30,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{animalId:int}")]
-        public OkObjectResult GetOne(int userId, int animalId)
+        public OkObjectResult GetOne(string userId, int animalId)
         {
             var userAnimal = _service.UserAnimalService.GetOne(userId, animalId, false);
 

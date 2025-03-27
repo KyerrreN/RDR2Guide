@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId:int}/weapons")]
+    [Route("api/users/{userId}/weapons")]
     [Authorize]
     public class UserWeaponController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(int userId)
+        public OkObjectResult GetAll(string userId)
         {
             var userWeapons = _service.UserWeaponService.GetAll(userId, false);
 
@@ -30,7 +30,7 @@ namespace RDR2Guide.Presentation.Controllers
         }
 
         [HttpGet("{weaponId:int}")]
-        public OkObjectResult GetOne(int userId, int weaponId)
+        public OkObjectResult GetOne(string userId, int weaponId)
         {
             var userWeapon = _service.UserWeaponService.GetOne(userId, weaponId, false);
 
