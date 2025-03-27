@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectStoryQuest(UserStoryquest storyQuest)
+        {
+            Create(storyQuest);
+        }
+
+        public void DeleteStoryQuest(UserStoryquest storyQuest)
+        {
+            Delete(storyQuest);
+        }
+
         public UserStoryquest GetFoundStoryQuest(string userId, int storyQuestId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.StoryquestId.Equals(storyQuestId), trackChanges)

@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectFaction(UserFaction userFaction)
+        {
+            Create(userFaction);
+        }
+
+        public void DeleteFaction(UserFaction userFaction)
+        {
+            Delete(userFaction);
+        }
+
         public UserFaction GetFoundFaction(string userId, int factionId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.FactionId.Equals(factionId), trackChanges)

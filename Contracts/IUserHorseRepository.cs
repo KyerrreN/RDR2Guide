@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserHorse> GetUserFoundHorses(string userId, bool trackChanges);
         UserHorse GetFoundHorse(string userId, int horseId, bool trackChanges);
+        void CollectHorse(UserHorse horse);
+        void DeleteHorse(UserHorse horse);
     }
 }

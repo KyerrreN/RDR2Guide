@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
+using Entities.Models;
 using Service.Contracts;
 using Shared.DTO;
 using System;
@@ -21,6 +22,37 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
+
+        public async Task Collect(string userId, int id)
+        {
+            var found = _repository.Collectible.GetCollectible(id, false)
+                ?? throw new NotFoundException("Collectible with specified id does not exist");
+
+            var existing = _repository.UserCollectible.GetFoundCollectible(userId, id, false);
+            if (existing is not null)
+                throw new BadRequestException("Duplicate entry");
+
+            var userCollectible = new UserCollectible
+            {
+                UserId = userId,
+                CollectibleId = id,
+            };
+            _repository.UserCollectible.CollectCollectible(userCollectible);
+            await _repository.SaveAsync();
+        }
+
+        public async Task Delete(string userId, int id)
+        {
+            var found = _repository.Collectible.GetCollectible(id, false)
+                ?? throw new NotFoundException("Collectible with specified id does not exist");
+
+            var existing = _repository.UserCollectible.GetFoundCollectible(userId, id, false)
+                ?? throw new NotFoundException("Collectible was not found");
+
+            _repository.UserCollectible.DeleteCollectible(existing);
+            await _repository.SaveAsync();
+        }
+
         public BaseDto<UserCollectibleDto> GetAll(string userId, bool trackChanges)
         {
             //var user = _repository.User.GetUser(userId, trackChanges)

@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserPlant> GetUserFoundPlants(string userId, bool trackChanges);
         UserPlant GetFoundPlant(string userId, int plantId, bool trackChanges);
+        void CollectPlant(UserPlant plant);
+        void DeletePlant(UserPlant plant);
     }
 }

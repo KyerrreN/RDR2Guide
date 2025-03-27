@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserChallenge> GetUserFoundChallenges(string userId, bool trackChanges);
         UserChallenge GetFoundChallenge(string userId, int challengeId, bool trackChanges);
+        void CollectChallenge(UserChallenge userChallenge);
+        void DeleteChallenge(UserChallenge userChallenge);
     }
 }

@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectChallenge(UserChallenge userChallenge)
+        {
+            Create(userChallenge);
+        }
+
+        public void DeleteChallenge(UserChallenge userChallenge)
+        {
+            Delete(userChallenge);
+        }
+
         public UserChallenge GetFoundChallenge(string userId, int challengeId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.ChallengeId.Equals(challengeId), trackChanges)

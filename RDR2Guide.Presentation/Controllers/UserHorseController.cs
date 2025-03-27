@@ -41,5 +41,21 @@ namespace RDR2Guide.Presentation.Controllers
 
             return Ok(userHorse);
         }
+        [HttpPost("{horseId:int}")]
+        public async Task<StatusCodeResult> Collect(int horseId)
+        {
+            var userId = await _userIdParser.ParseUserId(User);
+            await _service.UserHorseService.Collect(userId, horseId);
+
+            return StatusCode(201);
+        }
+        [HttpDelete("{horseId:int}")]
+        public async Task<StatusCodeResult> Delete(int horseId)
+        {
+            var userId = await _userIdParser.ParseUserId(User);
+            await _service.UserHorseService.Delete(userId, horseId);
+
+            return StatusCode(204);
+        }
     }
 }

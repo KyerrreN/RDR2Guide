@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserRandomencounter> GetUserFoundRandomEncounter(string userId, bool trackChanges);
         UserRandomencounter GetFoundRandomEncounter(string userId, int randomEncounterId, bool trackChanges);
+        void CollectRandomEncounter(UserRandomencounter randomEncounter);
+        void DeleteRandomRandomEncounter(UserRandomencounter randomEncounter);
     }
 }

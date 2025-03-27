@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserStoryquest> GetUserFoundStoryQuests(string userId, bool trackChanges);
         UserStoryquest GetFoundStoryQuest(string userId, int storyQuestId, bool trackChanges);
+        void CollectStoryQuest(UserStoryquest storyQuest);
+        void DeleteStoryQuest(UserStoryquest storyQuest);
     }
 }

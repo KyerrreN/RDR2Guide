@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectHorse(UserHorse horse)
+        {
+            Create(horse);
+        }
+
+        public void DeleteHorse(UserHorse horse)
+        {
+            Delete(horse);
+        }
+
         public UserHorse GetFoundHorse(string userId, int horseId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.HorseId.Equals(horseId), trackChanges)

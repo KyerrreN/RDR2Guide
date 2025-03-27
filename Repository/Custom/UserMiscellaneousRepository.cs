@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectMiscellaneous(UserMiscellaneous userMiscellaneous)
+        {
+            Create(userMiscellaneous);
+        }
+
+        public void DeleteMiscellaneous(UserMiscellaneous userMiscellaneous)
+        {
+            Delete(userMiscellaneous);
+        }
+
         public UserMiscellaneous GetFoundMiscellaneous(string userId, int miscellaneousId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.MiscellaneousId.Equals(miscellaneousId), trackChanges)

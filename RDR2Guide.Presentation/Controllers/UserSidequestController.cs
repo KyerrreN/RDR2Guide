@@ -41,5 +41,21 @@ namespace RDR2Guide.Presentation.Controllers
 
             return Ok(userSq);
         }
+        [HttpPost("{sideQuestId:int}")]
+        public async Task<StatusCodeResult> Collect(int sideQuestId)
+        {
+            var userId = await _userIdParser.ParseUserId(User);
+            await _service.UserSidequestService.Collect(userId, sideQuestId);
+
+            return StatusCode(201);
+        }
+        [HttpDelete("{sideQuestId:int}")]
+        public async Task<StatusCodeResult> Delete(int sideQuestId)
+        {
+            var userId = await _userIdParser.ParseUserId(User);
+            await _service.UserSidequestService.Delete(userId, sideQuestId);
+
+            return StatusCode(204);
+        }
     }
 }

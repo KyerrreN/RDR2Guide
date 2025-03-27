@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectTableGame(UserTablegame tableGame)
+        {
+            Create(tableGame);
+        }
+
+        public void DeleteTableGame(UserTablegame tableGame)
+        {
+            Delete(tableGame);
+        }
+
         public UserTablegame GetFoundTableGame(string userId, int tableGameId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.TablegameId.Equals(tableGameId), trackChanges)

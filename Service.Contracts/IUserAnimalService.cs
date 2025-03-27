@@ -11,5 +11,7 @@ namespace Service.Contracts
     {
         BaseDto<UserAnimalDto> GetAll(string userId, bool trackChanges);
         UserAnimalDto GetOne(string userId, int id, bool trackChanges);
+        Task CollectAnimal(string userId, int id);
+        Task DeleteAnimal(string userId, int id);
     }
 }

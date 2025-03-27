@@ -11,5 +11,7 @@ namespace Service.Contracts
     {
         BaseDto<UserRandomencounterDto> GetAll(string userId, bool trackChanges);
         UserRandomencounterDto GetOne(string userId, int id, bool trackChanges);
+        Task Collect(string userId, int id);
+        Task Delete(string userId, int id);
     }
 }

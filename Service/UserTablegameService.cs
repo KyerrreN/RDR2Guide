@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
+using Entities.Models;
 using Service.Contracts;
 using Shared.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service
 {
@@ -20,6 +16,35 @@ namespace Service
         {
             _repository = repository;
             _mapper = mapper;
+        }
+        public async Task Collect(string userId, int id)
+        {
+            var found = _repository.Tablegame.GetTableGame(id, false)
+                ?? throw new NotFoundException("Table game with specified id does not exist");
+
+            var existing = _repository.UserTablegame.GetFoundTableGame(userId, id, false);
+            if (existing is not null)
+                throw new BadRequestException("Duplicate entry");
+
+            var foundItem = new UserTablegame
+            {
+                UserId = userId,
+                TablegameId = id,
+            };
+            _repository.UserTablegame.CollectTableGame(foundItem);
+            await _repository.SaveAsync();
+        }
+
+        public async Task Delete(string userId, int id)
+        {
+            var found = _repository.Tablegame.GetTableGame(id, false)
+                ?? throw new NotFoundException("Table game with specified id does not exist");
+
+            var existing = _repository.UserTablegame.GetFoundTableGame(userId, id, false)
+                ?? throw new NotFoundException("Table game was not found");
+
+            _repository.UserTablegame.DeleteTableGame(existing);
+            await _repository.SaveAsync();
         }
         public BaseDto<UserTablegameDto> GetAll(string userId, bool trackChanges)
         {

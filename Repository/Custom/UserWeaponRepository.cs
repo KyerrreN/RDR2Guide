@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectWeapon(UserWeapon weapon)
+        {
+            Create(weapon);
+        }
+
+        public void DeleteWeapon(UserWeapon weapon)
+        {
+            Delete(weapon);
+        }
+
         public UserWeapon GetFoundWeapon(string userId, int weaponId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.WeaponId.Equals(weaponId), trackChanges)

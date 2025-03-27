@@ -41,5 +41,21 @@ namespace RDR2Guide.Presentation.Controllers
 
             return Ok(userFaction);
         }
+        [HttpPost("{factionId:int}")]
+        public async Task<StatusCodeResult> Collect(int factionId)
+        {
+            var userId = await _userIdParser.ParseUserId(User);
+            await _service.UserFactionService.Collect(userId, factionId);
+
+            return StatusCode(201);
+        }
+        [HttpDelete("{factionId:int}")]
+        public async Task<StatusCodeResult> Delete(int factionId)
+        {
+            var userId = await _userIdParser.ParseUserId(User);
+            await _service.UserFactionService.Delete(userId, factionId);
+
+            return StatusCode(204);
+        }
     }
 }

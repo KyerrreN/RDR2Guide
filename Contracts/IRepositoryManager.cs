@@ -37,5 +37,6 @@ namespace Contracts
         IUserWeaponRepository UserWeapon { get; }
         IWeaponRepository Weapon { get; }
         void Save();
+        Task SaveAsync();
     }
 }

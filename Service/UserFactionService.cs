@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
+using Entities.Models;
 using Service.Contracts;
 using Shared.DTO;
 using System;
@@ -20,6 +21,35 @@ namespace Service
         {
             _repository = repository;
             _mapper = mapper;
+        }
+        public async Task Collect(string userId, int id)
+        {
+            var found = _repository.Faction.GetFaction(id, false)
+                ?? throw new NotFoundException("Faction with specified id does not exist");
+
+            var existing = _repository.UserFaction.GetFoundFaction(userId, id, false);
+            if (existing is not null)
+                throw new BadRequestException("Duplicate entry");
+
+            var foundItem = new UserFaction
+            {
+                UserId = userId,
+                FactionId = id,
+            };
+            _repository.UserFaction.CollectFaction(foundItem);
+            await _repository.SaveAsync();
+        }
+
+        public async Task Delete(string userId, int id)
+        {
+            var found = _repository.Faction.GetFaction(id, false)
+                ?? throw new NotFoundException("Faction with specified id does not exist");
+
+            var existing = _repository.UserFaction.GetFoundFaction(userId, id, false)
+                ?? throw new NotFoundException("Faction was not found");
+
+            _repository.UserFaction.DeleteFaction(existing);
+            await _repository.SaveAsync();
         }
         public BaseDto<UserFactionDto> GetAll(string userId, bool trackChanges)
         {

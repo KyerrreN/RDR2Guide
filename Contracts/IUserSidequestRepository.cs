@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserSidequest> GetUserFoundSideQuests(string userId, bool trackChanges);
         UserSidequest GetFoundSideQuest(string userId, int sideQuestId, bool trackChanges);
+        void CollectSideQuest(UserSidequest userSideQuest);
+        void DeleteSideQuest(UserSidequest userSideQuest);
     }
 }

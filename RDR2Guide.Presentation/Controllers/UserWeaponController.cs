@@ -41,5 +41,21 @@ namespace RDR2Guide.Presentation.Controllers
 
             return Ok(userWeapon);
         }
+        [HttpPost("{weaponId:int}")]
+        public async Task<StatusCodeResult> Collect(int weaponId)
+        {
+            var userId = await _userIdParser.ParseUserId(User);
+            await _service.UserWeaponService.Collect(userId, weaponId);
+
+            return StatusCode(201);
+        }
+        [HttpDelete("{weaponId:int}")]
+        public async Task<StatusCodeResult> Delete(int weaponId)
+        {
+            var userId = await _userIdParser.ParseUserId(User);
+            await _service.UserWeaponService.Delete(userId, weaponId);
+
+            return StatusCode(204);
+        }
     }
 }

@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void AddFoundAnimal(UserAnimal userAnimal)
+        {
+            Create(userAnimal);
+        }
+
+        public void DeleteFoundAnimal(UserAnimal userAnimal)
+        {
+            Delete(userAnimal);
+        }
+
         public UserAnimal GetFoundAnimal(string userId, int animalId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.AnimalId.Equals(animalId), trackChanges)

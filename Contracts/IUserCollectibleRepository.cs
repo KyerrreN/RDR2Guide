@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserCollectible> GetUserFoundCollectibles(string userId, bool trackChanges);
         UserCollectible GetFoundCollectible(string userId, int animalId, bool trackChanges);
+        void CollectCollectible(UserCollectible userCollectible);
+        void DeleteCollectible(UserCollectible userCollectible);
     }
 }

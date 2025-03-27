@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
+using Entities.Models;
 using Service.Contracts;
 using Shared.DTO;
 using System;
@@ -21,6 +22,37 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
+
+        public async Task Collect(string userId, int id)
+        {
+            var found = _repository.Challenge.GetChallenge(id, false)
+                ?? throw new NotFoundException("Challenge with specified id does not exist");
+
+            var existing = _repository.UserChallenge.GetFoundChallenge(userId, id, false);
+            if (existing is not null)
+                throw new BadRequestException("Duplicate entry");
+
+            var challenge = new UserChallenge
+            {
+                UserId = userId,
+                ChallengeId = id,
+            };
+            _repository.UserChallenge.CollectChallenge(challenge);
+            await _repository.SaveAsync();
+        }
+
+        public async Task Delete(string userId, int id)
+        {
+            var found = _repository.Challenge.GetChallenge(id, false)
+                ?? throw new NotFoundException("Challenge with specified id does not exist");
+
+            var existing = _repository.UserChallenge.GetFoundChallenge(userId, id, false)
+                ?? throw new NotFoundException("Challenge was not found");
+
+            _repository.UserChallenge.DeleteChallenge(existing);
+            await _repository.SaveAsync();
+        }
+
         public BaseDto<UserChallengeDto> GetAll(string userId, bool trackChanges)
         {
             //var user = _repository.User.GetUser(userId, trackChanges);

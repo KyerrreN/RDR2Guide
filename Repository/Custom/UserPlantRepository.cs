@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectPlant(UserPlant plant)
+        {
+            Create(plant);
+        }
+
+        public void DeletePlant(UserPlant plant)
+        {
+            Delete(plant);
+        }
+
         public UserPlant GetFoundPlant(string userId, int plantId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.PlantId.Equals(plantId), trackChanges)

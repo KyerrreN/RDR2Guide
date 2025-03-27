@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserFaction> GetUserFoundFactions(string userId, bool trackChanges);
         UserFaction GetFoundFaction(string userId, int factionId, bool trackChanges);
+        void CollectFaction(UserFaction userFaction);
+        void DeleteFaction(UserFaction userFaction);
     }
 }

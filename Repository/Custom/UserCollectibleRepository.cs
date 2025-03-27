@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectCollectible(UserCollectible userCollectible)
+        {
+            Create(userCollectible);
+        }
+
+        public void DeleteCollectible(UserCollectible userCollectible)
+        {
+            Delete(userCollectible);
+        }
+
         public UserCollectible GetFoundCollectible(string userId, int collectibleId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.CollectibleId.Equals(collectibleId), trackChanges)

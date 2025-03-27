@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
+using Entities.Models;
 using Service.Contracts;
 using Shared.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service
 {
@@ -20,6 +16,35 @@ namespace Service
         {
             _repository = repository;
             _mapper = mapper;
+        }
+        public async Task Collect(string userId, int id)
+        {
+            var found = _repository.Randomencounter.GetRandomEncounter(id, false)
+                ?? throw new NotFoundException("Random encounter with specified id does not exist");
+
+            var existing = _repository.UserRandomencounter.GetFoundRandomEncounter(userId, id, false);
+            if (existing is not null)
+                throw new BadRequestException("Duplicate entry");
+
+            var foundItem = new UserRandomencounter
+            {
+                UserId = userId,
+                RandomencounterId = id,
+            };
+            _repository.UserRandomencounter.CollectRandomEncounter(foundItem);
+            await _repository.SaveAsync();
+        }
+
+        public async Task Delete(string userId, int id)
+        {
+            var found = _repository.Randomencounter.GetRandomEncounter(id, false)
+                ?? throw new NotFoundException("Random encounter with specified id does not exist");
+
+            var existing = _repository.UserRandomencounter.GetFoundRandomEncounter(userId, id, false)
+                ?? throw new NotFoundException("RandomEncounter was not found");
+
+            _repository.UserRandomencounter.DeleteRandomRandomEncounter(existing);
+            await _repository.SaveAsync();
         }
         public BaseDto<UserRandomencounterDto> GetAll(string userId, bool trackChanges)
         {

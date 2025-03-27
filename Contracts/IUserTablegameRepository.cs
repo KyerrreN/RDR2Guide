@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserTablegame> GetUserFoundTableGames(string userId, bool trackChanges);
         UserTablegame GetFoundTableGame(string userId, int tableGameId, bool trackChanges);
+        void CollectTableGame(UserTablegame tableGame);
+        void DeleteTableGame(UserTablegame tableGame);
     }
 }

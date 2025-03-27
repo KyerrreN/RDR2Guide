@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectFish(UserFish fish)
+        {
+            Create(fish);
+        }
+
+        public void DeleteFish(UserFish fish)
+        {
+            Delete(fish);
+        }
+
         public UserFish GetFoundFish(string userId, int fishId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.FishId.Equals(fishId), trackChanges)

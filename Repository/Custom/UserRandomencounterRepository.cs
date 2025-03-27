@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectRandomEncounter(UserRandomencounter randomEncounter)
+        {
+            Create(randomEncounter);
+        }
+
+        public void DeleteRandomRandomEncounter(UserRandomencounter randomEncounter)
+        {
+            Delete(randomEncounter);
+        }
+
         public UserRandomencounter GetFoundRandomEncounter(string userId, int randomEncounterId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.RandomencounterId.Equals(randomEncounterId), trackChanges)

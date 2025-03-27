@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserMiscellaneous> GetUserFoundMiscellaneous(string userId, bool trackChanges);
         UserMiscellaneous GetFoundMiscellaneous(string userId, int miscellaneousId, bool trackChanges);
+        void CollectMiscellaneous(UserMiscellaneous userMiscellaneous);
+        void DeleteMiscellaneous(UserMiscellaneous userMiscellaneous);
     }
 }

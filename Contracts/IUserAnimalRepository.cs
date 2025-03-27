@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserAnimal> GetUserFoundAnimals(string userId, bool trackChanges); 
         UserAnimal GetFoundAnimal(string userId, int animalId, bool trackChanges);
+        void AddFoundAnimal(UserAnimal userAnimal);
+        void DeleteFoundAnimal(UserAnimal userAnimal);
     }
 }

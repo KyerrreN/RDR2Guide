@@ -15,6 +15,16 @@ namespace Repository.Custom
         {
         }
 
+        public void CollectSideQuest(UserSidequest userSideQuest)
+        {
+            Create(userSideQuest);
+        }
+
+        public void DeleteSideQuest(UserSidequest userSideQuest)
+        {
+            Delete(userSideQuest);
+        }
+
         public UserSidequest GetFoundSideQuest(string userId, int sideQuestId, bool trackChanges)
         {
             return FindByCondition(x => x.UserId.Equals(userId) && x.SidequestId.Equals(sideQuestId), trackChanges)

@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
+using Entities.Models;
 using Service.Contracts;
 using Shared.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service
 {
@@ -20,6 +16,36 @@ namespace Service
         {
             _repository = repository;
             _mapper = mapper;
+        }
+
+        public async Task Collect(string userId, int id)
+        {
+            var found = _repository.Fish.GetFish(id, false)
+                ?? throw new NotFoundException("Fish with specified id does not exist");
+
+            var existing = _repository.UserFish.GetFoundFish(userId, id, false);
+            if (existing is not null)
+                throw new BadRequestException("Duplicate entry");
+
+            var foundItem = new UserFish
+            {
+                UserId = userId,
+                FishId = id,
+            };
+            _repository.UserFish.CollectFish(foundItem);
+            await _repository.SaveAsync();
+        }
+
+        public async Task Delete(string userId, int id)
+        {
+            var found = _repository.Fish.GetFish(id, false)
+                ?? throw new NotFoundException("Fish with specified id does not exist");
+
+            var existing = _repository.UserFish.GetFoundFish(userId, id, false)
+                ?? throw new NotFoundException("Fish was not found");
+
+            _repository.UserFish.DeleteFish(existing);
+            await _repository.SaveAsync();
         }
         public BaseDto<UserFishDto> GetAll(string userId, bool trackChanges)
         {

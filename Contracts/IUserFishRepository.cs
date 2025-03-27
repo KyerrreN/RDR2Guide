@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserFish> GetUserFoundFish(string userId, bool trackChanges);
         UserFish GetFoundFish(string userId, int fishId, bool trackChanges);
+        void CollectFish(UserFish fish);
+        void DeleteFish(UserFish fish);
     }
 }

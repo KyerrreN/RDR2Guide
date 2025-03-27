@@ -11,5 +11,7 @@ namespace Contracts
     {
         IEnumerable<UserWeapon> GetUserFoundWeapons(string userId, bool trackChanges);
         UserWeapon GetFoundWeapon(string userId, int weaponId, bool trackChanges);
+        void CollectWeapon(UserWeapon weapon);
+        void DeleteWeapon(UserWeapon weapon);
     }
 }

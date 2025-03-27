@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
+using Entities.Models;
 using Service.Contracts;
 using Shared.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service
 {
@@ -21,6 +17,38 @@ namespace Service
             _repository = repository;
             _mapper = mapper;
         }
+
+        public async Task CollectAnimal(string userId, int id)
+        {
+            var animal = _repository.Animal.GetAnimal(id, false)
+                ?? throw new NotFoundException("Couldn't find animal with id " + id);
+
+            var existingAnimal = _repository.UserAnimal.GetFoundAnimal(userId, id, false);
+            if (existingAnimal is not null)
+                throw new BadRequestException("Duplicate entry");
+
+            var userAnimal = new UserAnimal
+            {
+                UserId = userId,
+                AnimalId = id,
+            };
+
+            _repository.UserAnimal.AddFoundAnimal(userAnimal);
+            await _repository.SaveAsync();
+        }
+
+        public async Task DeleteAnimal(string userId, int id)
+        {
+            var animal = _repository.Animal.GetAnimal(id, false)
+                ?? throw new NotFoundException("Couldn't find animal with id " + id);
+
+            var existingAnimal = _repository.UserAnimal.GetFoundAnimal(userId, id, false) 
+                ?? throw new NotFoundException("Animal with id " + id + " is not collected");
+
+            _repository.UserAnimal.DeleteFoundAnimal(existingAnimal);
+            await _repository.SaveAsync();
+        }
+
         public BaseDto<UserAnimalDto> GetAll(string userId, bool trackChanges)
         {
             var useranimals = _repository.UserAnimal.GetUserFoundAnimals(userId, trackChanges);
