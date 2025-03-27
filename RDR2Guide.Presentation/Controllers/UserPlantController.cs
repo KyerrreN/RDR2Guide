@@ -1,37 +1,37 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RDR2Guide.Presentation.Extensions;
 using Service.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId}/plants")]
+    [Route("api/users/plants")]
     [Authorize]
     public class UserPlantController : ControllerBase
     {
         private readonly IServiceManager _service;
+        private readonly UserIdParser _userIdParser;
 
-        public UserPlantController(IServiceManager service)
+        public UserPlantController(IServiceManager service, UserIdParser userIdParser)
         {
             _service = service;
+            _userIdParser = userIdParser;
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(string userId)
+        public async Task<OkObjectResult> GetAll()
         {
+            var userId = await _userIdParser.ParseUserId(User);
             var userPlants = _service.UserPlantService.GetAll(userId, false);
 
             return Ok(userPlants);
         }
 
         [HttpGet("{plantId:int}")]
-        public OkObjectResult GetOne(string userId, int plantId)
+        public async Task<OkObjectResult> GetOne(int plantId)
         {
+            var userId = await _userIdParser.ParseUserId(User);
             var userPlant = _service.UserPlantService.GetOne(userId, plantId, false);
 
             return Ok(userPlant);

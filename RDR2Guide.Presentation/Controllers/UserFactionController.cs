@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RDR2Guide.Presentation.Extensions;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -10,28 +11,32 @@ using System.Threading.Tasks;
 namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/users/{userId}/factions")]
+    [Route("api/users/factions")]
     [Authorize]
     public class UserFactionController : ControllerBase
     {
         private readonly IServiceManager _service;
+        private readonly UserIdParser _userIdParser;
 
-        public UserFactionController(IServiceManager service)
+        public UserFactionController(IServiceManager service, UserIdParser userIdParser)
         {
             _service = service;
+            _userIdParser = userIdParser;
         }
 
         [HttpGet]
-        public OkObjectResult GetAll(string userId)
+        public async Task<OkObjectResult> GetAll()
         {
+            var userId = await _userIdParser.ParseUserId(User);
             var userFaction = _service.UserFactionService.GetAll(userId, false);
 
             return Ok(userFaction);
         }
 
         [HttpGet("{factionId:int}")]
-        public OkObjectResult GetOne(string userId, int factionId)
+        public async Task<OkObjectResult> GetOne(int factionId)
         {
+            var userId = await _userIdParser.ParseUserId(User);
             var userFaction = _service.UserFactionService.GetOne(userId, factionId, false);
 
             return Ok(userFaction);

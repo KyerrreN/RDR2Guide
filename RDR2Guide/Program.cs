@@ -1,5 +1,6 @@
 
 using RDR2Guide.Extensions;
+using RDR2Guide.Presentation.Extensions;
 
 namespace RDR2Guide
 {
@@ -34,6 +35,8 @@ namespace RDR2Guide
             builder.Services.AddAuthentication();
             builder.Services.ConfigureIdentity();
             builder.Services.ConfigureJWT(builder.Configuration);
+
+            builder.Services.AddScoped(typeof(UserIdParser));
 
             builder.Services.ConfigureFluentValidation();
 
