@@ -11,7 +11,6 @@ namespace RDR2Guide.Presentation.Controllers
 {
     [ApiController]
     [Route("api/weapons")]
-    [Authorize]
     public class WeaponController : ControllerBase
     {
         private readonly IServiceManager _service;
