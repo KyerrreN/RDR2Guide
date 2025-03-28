@@ -54,7 +54,7 @@ namespace Service
             return result;
         }
 
-        public async Task<TokenDto> CreateToken(bool populateExp)
+        public async Task<UserCredentialsDto> CreateToken(bool populateExp)
         {
             var signingCredentials = GetSigningCredentials();
             var claims = await GetClaims();
@@ -73,14 +73,22 @@ namespace Service
 
             var accessToken = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
 
-            return new TokenDto
+            var usernameClaim = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name).Value;
+            var nicknameClaim = claims.FirstOrDefault(c => c.Type == "Nickname").Value;
+
+            return new UserCredentialsDto
             {
-                AccessToken = accessToken,
-                RefreshToken = refreshToken,
+                Nickname = nicknameClaim,
+                Username = usernameClaim,
+                Tokens = new TokenDto
+                {
+                    AccessToken = accessToken,
+                    RefreshToken = refreshToken
+                }
             };
         }
 
-        public async Task<TokenDto> RefreshToken(TokenDto tokenDto)
+        public async Task<UserCredentialsDto> RefreshToken(TokenDto tokenDto)
         {
             var principal = GetPrincipalFromExpiredToken(tokenDto.AccessToken);
 
